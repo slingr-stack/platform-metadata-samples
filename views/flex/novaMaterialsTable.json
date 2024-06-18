@@ -1,0 +1,7 @@
+{
+  "type": "table",
+  "label": "Material & Instruments",
+  "name": "materialAndInstruments",
+  "columnsSchema": "dynamic",
+  "dataSet": "js/materialAndInstrumentsTableRowCalculation"
+}
