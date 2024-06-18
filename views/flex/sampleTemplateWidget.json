@@ -1,0 +1,6 @@
+{
+  "type": "template",
+  "label": "Material & Instruments",
+  "name": "materialAndInstruments",
+  "model": "js/materialAndInstrumentsTableRowCalculation"
+}
