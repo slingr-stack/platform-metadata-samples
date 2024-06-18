@@ -15,7 +15,10 @@ function materialAndInstrumentsTableRowCalculation(record, options) {
         },
         {
             label: 'Exp. Date',
-            name: 'expDate'
+            name: 'expDate',
+            options: {
+                format: 'MM-dd-yyyy'
+            }
         }
     ];
     let rows = [];
@@ -24,7 +27,7 @@ function materialAndInstrumentsTableRowCalculation(record, options) {
             material: note.field('material').label(),
             description: note.field('description').isNotEmpty() ? note.field('description').val() : '-',
             lotId: note.field('lotId').val(),
-            expDate: note.field('expDate').isNotEmpty() ? note.field('expDate').format('MM-dd-yyyy') : '-'
+            expDate: note.field('expDate').isNotEmpty() ? note.field('expDate').val() : '-'
         });
     });
     return {
