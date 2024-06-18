@@ -24,7 +24,7 @@ function materialAndInstrumentsTableRowCalculation(record, options) {
             material: note.field('material').label(),
             description: note.field('description').isNotEmpty() ? note.field('description').val() : '-',
             lotId: note.field('lotId').val(),
-            expDate: note.field('expDate').format('MM-dd-yyyy')
+            expDate: note.field('expDate').isNotEmpty() ? note.field('expDate').format('MM-dd-yyyy') : '-'
         });
     });
     return {
