@@ -1,7 +1,7 @@
 {
   "type": "template",
-  "label": "User information",
-  "name": "userInformation",
-  "model": "js/userInfoModelCalculation",
+  "label": "User info",
+  "name": "userInfo",
+  "model": "js/userInfoTemplateModelCalculation",
   "view": "sampleTemplateWidgetView"
 }
