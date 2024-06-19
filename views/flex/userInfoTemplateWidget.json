@@ -2,6 +2,6 @@
   "type": "template",
   "label": "User info",
   "name": "userInfo",
-  "model": "js/userInfoTemplateModelCalculation",
-  "view": "sampleTemplateWidgetView"
+  "modelScript": "js/userInfoTemplateModelCalculation",
+  "template": "sampleTemplateWidgetView"
 }
