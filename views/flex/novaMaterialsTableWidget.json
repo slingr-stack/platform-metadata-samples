@@ -1,6 +1,6 @@
 {
   "type": "dynamicTable",
-  "label": "Material & Instruments",
-  "name": "materialAndInstruments",
-  "script": "js/materialAndInstrumentsTableWidgetCalculation"
+  "label": "Materials",
+  "name": "materials",
+  "script": "js/materialsTableWidgetCalculation"
 }

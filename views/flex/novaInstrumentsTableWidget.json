@@ -1,0 +1,6 @@
+{
+  "type": "dynamicTable",
+  "label": "Instruments",
+  "name": "instruments",
+  "script": "js/instrumentsTableWidgetCalculation"
+}
