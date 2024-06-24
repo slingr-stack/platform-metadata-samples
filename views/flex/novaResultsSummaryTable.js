@@ -1,7 +1,7 @@
 
 function resultsSummaryTableWidgetCalculation(record, options) {
     // TODO: retrieve data
-    let resultsData = sys.data.find('samples', {})
+    let resultsData = sys.data.aggregate('samples', {})
 
     // build table
 
@@ -14,65 +14,45 @@ function resultsSummaryTableWidgetCalculation(record, options) {
             options: {
                 sticky: true
             }
-        },
-        {
-            label: 'Customer',
-            name: 'customer',
-            type: 'html'
-        },
-        {
-            label: 'Sample Matrix',
-            name: 'sampleMatrix',
-            type: 'html'
-        },
-        {
-            label: 'Sample type',
-            name: 'sampleType',
-            type: 'html'
-        },
-        {
-            label: 'Sample name',
-            name: 'sampleName',
-            type: 'html'
-        },
-        {
-            label: 'Order number',
-            name: 'orderNumber',
-            type: 'html'
-        },
-        {
-            label: 'Dilution Factor',
-            name: 'dilutionFactor',
-            type: 'html'
         }
     ];
     // build columns dynamically based on data
     while (resultsData.hasNext()) {
         let result = resultsData.next();
-        let existingColumn = columns.find(column => column.name === result.field('partitionId').id());
-        if (!existingColumn) {
-            columns.push({
-                label: result.field('partitionId').label(),
-                name: result.field('partitionId').id(),
-                type: 'html'
-            });
+        let services = result.analysisServices;
+        for (let serviceIndex = 0; serviceIndex < services.length; serviceIndex++) {
+            let existingColumn = columns.find(column => column.name === services[serviceIndex].name);
+            if (!existingColumn) {
+                columns.push({
+                    label: services[serviceIndex].label,
+                    name: services[serviceIndex].name,
+                    type: 'html'
+                });
+            }
         }
     }
 
     // build rows
     let rows = [];
-    while (samplesData.hasNext()) {
-        let result = samplesData.next();
-        let partitionCell = result.field('partitionId').id(); // TODO: action
+    while (resultsData.hasNext()) {
+        let result = resultsData.next();
+        let partitionId = result.field('partitionId').id();
+        let partitionCell = `<slingr-entity-action action="openResults" recordId="${partitionId}">Open results</slingr-entity-action>`;
         let row = {
             partitionId: partitionCell,
-            customer: result.field('customer').label(),
-            sampleMatrix: result.field('sampleMatrix').val(),
-            sampleType: result.field('sampleType').val(),
-            sampleName: result.field('sampleName').val(),
-            orderNumber: result.field('orderNumber').val(),
-            dilutionFactor: result.field('dilutionFactor').val(),
         };
+        let services = result.analysisServices;
+        for (let serviceIndex = 0; serviceIndex < services.length; serviceIndex++) {
+            let serviceValueCell = {
+                value: services[serviceIndex].raw + '<br>' + services[serviceIndex].result,
+                style: {}
+            };
+            // highlight cell value
+            if (services[serviceIndex].raw > 0.5) {
+                serviceValueCell.style.backgroundColor = 'red';
+            }
+            row[services[serviceIndex].name] = serviceValueCell
+        }
         rows.push(row);
     }
     return {
