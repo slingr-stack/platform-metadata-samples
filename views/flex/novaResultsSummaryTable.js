@@ -36,7 +36,7 @@ function resultsSummaryTableWidgetCalculation(record, options) {
     let rows = [];
     while (resultsData.hasNext()) {
         let result = resultsData.next();
-        let partitionId = result.field('partitionId').id();
+        let partitionId = result.partitionId;
         let partitionCell = `<slingr-entity-action action="openResults" recordId="${partitionId}">Open results</slingr-entity-action>`;
         let row = {
             partitionId: partitionCell,
