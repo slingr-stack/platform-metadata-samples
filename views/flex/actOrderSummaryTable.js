@@ -55,12 +55,12 @@ function statusSummaryTableWidgetCalculation(record, options) {
             type: 'html'
         }
     ];
-    let getLabelClass = function (status) {
+    let getLabelType = function (status) {
         if (status === 'verified' || status === 'pushished') {
-            return 'slingr-label-success';
+            return 'success';
         }
-        return 'slingr-label-info';
-    }
+        return 'default';
+    };
 
     // build rows
     let rows = [];
@@ -68,25 +68,26 @@ function statusSummaryTableWidgetCalculation(record, options) {
         let sample = samplesData.next();
         let sampleIdCell = sample.field('sampleId').val();
         if (sample.reportAvailable) {
-            let fileUrl = '/api/data/samples/' + sample.id() + '/files/' + sample.field('report').id();
-            sampleIdCell += '<br><a href="' + fileUrl + '"><i class="slingr-icon-download"></i></a>';
+            let fileId = sample.field('report').id();
+            let fileName = sample.field('report').name();
+            sampleIdCell += `<slingr-file-link fileId="${fileId}">${fileName}</slingr-file-link>`
         }
-        let statusLabelClass = getLabelClass(sample.field('status').val());
-        let statusCell = '<div class="slingr-label ' + statusLabelClass + '">' + sample.field('status').val() + '</div>';
+        let statusCellType = getLabelType(sample.field('status').val());
+        let statusCell = `<slingr-label type="${statusCellType}">${sample.field('status').label()}</slingr-label>`;
         let wacCell = '-';
         if (sample.wacAvailable) {
-            let wacStatusLabelClass = getLabelClass(sample.field('wacStatus').val());
-            wacCell = '<div class="slingr-label ' + wacStatusLabelClass + '">' + sample.field('wacStatus').val() + '</div>';
+            let wacStatusCellType = getLabelType(sample.field('wacStatus').val());
+            wacCell = `<slingr-label type="${wacStatusCellType}">${sample.field('wacStatus').label()}</slingr-label>`;
         }
         let mstCell = '-';
         if (sample.mstAvailable) {
-            let mstStatusLabelClass = getLabelClass(sample.field('mstStatus').val());
-            mstCell = '<div class="slingr-label ' + mstStatusLabelClass + '">' + sample.field('mstStatus').val() + '</div>';
+            let mstStatusCellType = getLabelType(sample.field('mstStatus').val());
+            mstCell = `<slingr-label type="${mstStatusCellType}">${sample.field('mstStatus').label()}</slingr-label>`;
         }
         let fmCell = '-';
         if (sample.fmAvailable) {
-            let fmStatusLabelClass = getLabelClass(sample.field('fmStatus').val());
-            fmCell = '<div class="slingr-label ' + fmStatusLabelClass + '">' + sample.field('fmtStatus').val() + '</div>';
+            let fmtStatusCellType = getLabelType(sample.field('fmtStatus').val());
+            fmCell = `<slingr-label type="${fmtStatusCellType}">${sample.field('fmStatus').label()}</slingr-label>`;
         }
         let row = {
             sampleId: sampleIdCell,
