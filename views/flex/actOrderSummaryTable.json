@@ -1,0 +1,6 @@
+{
+  "type": "dynamicTable",
+  "label": "Status summary",
+  "name": "statusSummary",
+  "script": "js/statusSummaryTableWidgetCalculation"
+}
