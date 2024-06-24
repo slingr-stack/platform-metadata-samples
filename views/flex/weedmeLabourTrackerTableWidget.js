@@ -15,7 +15,7 @@ function labourTrackerTableWidgetCalculation(record, options) {
             name: 'activeWorkers',
             type: 'html',
             options: {
-                align: 'right',
+                alignment: 'right',
                 style: {
                     fontColor: 'green'
                 }
@@ -26,7 +26,7 @@ function labourTrackerTableWidgetCalculation(record, options) {
             name: 'onBreakWorkers',
             type: 'html',
             options: {
-                align: 'right',
+                alignment: 'right',
                 style: {
                     fontColor: 'orange'
                 }
@@ -37,7 +37,7 @@ function labourTrackerTableWidgetCalculation(record, options) {
             name: 'idleWorkers',
             type: 'html',
             options: {
-                align: 'right',
+                alignment: 'right',
                 style: {
                     fontColor: 'brown'
                 }
@@ -48,7 +48,7 @@ function labourTrackerTableWidgetCalculation(record, options) {
             name: 'total',
             type: 'integer',
             options: {
-                align: 'right'
+                alignment: 'right'
             }
         }
     ];

@@ -12,7 +12,7 @@ function newMeetingsTableWidgetCalculation(record, options) {
             label: 'Lead source',
             name: 'leadSource',
             options: {
-                align: 'center'
+                alignment: 'center'
             }
         }
     ];
@@ -27,7 +27,7 @@ function newMeetingsTableWidgetCalculation(record, options) {
                     name: periods[periodIndex].name,
                     type: 'integer',
                     options: {
-                        align: 'center'
+                        alignment: 'center'
                     }
                 });
             }
@@ -38,7 +38,7 @@ function newMeetingsTableWidgetCalculation(record, options) {
         name: 'ytd',
         type: 'integer',
         options: {
-            align: 'center'
+            alignment: 'center'
         }
     });
     columns.push({
@@ -46,7 +46,7 @@ function newMeetingsTableWidgetCalculation(record, options) {
         name: 'ytdVsTgt',
         type: 'percentage',
         options: {
-            align: 'center',
+            alignment: 'center',
             style: {
                 fontColor: 'green'
             }
