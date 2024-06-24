@@ -1,4 +1,3 @@
-
 function labourTrackerTableWidgetCalculation(record, options) {
     // TODO: retrieve data
     let labourTrackerData = {};
@@ -16,6 +15,7 @@ function labourTrackerTableWidgetCalculation(record, options) {
             name: 'activeWorkers',
             type: 'html',
             options: {
+                align: 'right',
                 style: {
                     fontColor: 'green'
                 }
@@ -26,6 +26,7 @@ function labourTrackerTableWidgetCalculation(record, options) {
             name: 'onBreakWorkers',
             type: 'html',
             options: {
+                align: 'right',
                 style: {
                     fontColor: 'orange'
                 }
@@ -36,6 +37,7 @@ function labourTrackerTableWidgetCalculation(record, options) {
             name: 'idleWorkers',
             type: 'html',
             options: {
+                align: 'right',
                 style: {
                     fontColor: 'brown'
                 }
@@ -44,7 +46,10 @@ function labourTrackerTableWidgetCalculation(record, options) {
         {
             label: 'Total',
             name: 'total',
-            type: 'integer'
+            type: 'integer',
+            options: {
+                align: 'right'
+            }
         }
     ];
 

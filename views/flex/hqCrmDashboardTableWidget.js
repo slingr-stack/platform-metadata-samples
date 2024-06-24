@@ -10,7 +10,10 @@ function newMeetingsTableWidgetCalculation(record, options) {
     let columns = [
         {
             label: 'Lead source',
-            name: 'leadSource'
+            name: 'leadSource',
+            options: {
+                align: 'center'
+            }
         }
     ];
     while (leadsData.hasNext()) {
@@ -22,7 +25,10 @@ function newMeetingsTableWidgetCalculation(record, options) {
                 columns.push({
                     label: periods[periodIndex].label,
                     name: periods[periodIndex].name,
-                    type: 'integer'
+                    type: 'integer',
+                    options: {
+                        align: 'center'
+                    }
                 });
             }
         }
@@ -30,13 +36,17 @@ function newMeetingsTableWidgetCalculation(record, options) {
     columns.push({
         label: 'YTD',
         name: 'ytd',
-        type: 'integer'
+        type: 'integer',
+        options: {
+            align: 'center'
+        }
     });
     columns.push({
         label: 'YTD vs TGT',
         name: 'ytdVsTgt',
         type: 'percentage',
         options: {
+            align: 'center',
             style: {
                 fontColor: 'green'
             }
