@@ -1,0 +1,6 @@
+{
+  "type": "dynamicTable",
+  "label": "New meetings",
+  "name": "newMeetings",
+  "script": "js/newMeetingsTableWidgetCalculation"
+}
