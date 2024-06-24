@@ -65,6 +65,8 @@ function newMeetingsTableWidgetCalculation(record, options) {
     for (let periodIndex = 0; periodIndex < totalPeriods.length; periodIndex++) {
         totalRow[periodIndex.name] = totalRow[periodIndex].total
     }
+    totalRow['ytd'] = leadsTotals.ytd;
+    totalRow['ytdVsTgt'] = leadsTotals.ytdVsTgt;
     rows.push({
         cells: totalRow,
         options: {
