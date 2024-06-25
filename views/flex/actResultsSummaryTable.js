@@ -100,7 +100,9 @@ function resultsSummaryTableWidgetCalculation(record, options) {
     };
     // build rows
     let rows = [];
+    let rowCounter = 0;
     while (resultsData.hasNext()) {
+        rowCounter++;
         let result = resultsData.next();
         let partitionId = result.partitionId;
         let row = {
@@ -119,8 +121,14 @@ function resultsSummaryTableWidgetCalculation(record, options) {
             arsenic: `${result.arsenic} <slingr-icon type="${getIconType(result.arsenic)}" color="${getIconColor(result.arsenic)}"></slingr-icon>`,
             cadmium: `${result.cadmium} <slingr-icon type="${getIconType(result.cadmium)}" color="${getIconColor(result.cadmium)}"></slingr-icon>`
         };
-
-        rows.push(row);
+        let rowOptions = {};
+        if (rowCounter <= 2) {
+            rowOptions.sticky = true;
+        }
+        rows.push({
+            options: rowOptions,
+            cells: row
+        });
     }
     return {
         columns: columns,
