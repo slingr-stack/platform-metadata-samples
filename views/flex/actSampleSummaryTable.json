@@ -1,0 +1,6 @@
+{
+  "type": "dynamicTable",
+  "label": "Sample summary",
+  "name": "sampleSummary",
+  "script": "js/sampleSummaryTableWidgetCalculation"
+}
