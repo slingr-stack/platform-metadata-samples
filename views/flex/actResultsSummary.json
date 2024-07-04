@@ -3,7 +3,5 @@
   "label": "Results summary",
   "name": "resultsSummary",
   "script": "js/resultsSummaryTableWidgetCalculation",
-  "header": {
-    "sticky": true
-  }
+  "stickyHeader": true
 }
