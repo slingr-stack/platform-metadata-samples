@@ -1,4 +1,4 @@
-function generateTable() {
+function generateTable(options) {
     return {
         header: [
             {name: "id", label: "ID", options: {style: {fontWeight: "bold", alignment: "center"}}},
