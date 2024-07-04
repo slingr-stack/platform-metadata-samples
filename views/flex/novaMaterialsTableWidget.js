@@ -1,15 +1,15 @@
 
 function materialsTableWidgetCalculation(record, options) {
     let rows = [];
-    record.field('notes').each(function (note) {
+    record.field('materials').each(function (material) {
         rows.push({
             cells: [
-                {headerName: "material", value: note.field('material').label()},
-                {headerName: "description", value: note.field('description').val()},
-                {headerName: "lotId", value: note.field('lotId').val()},
-                {headerName: "expDate", value: note.field('expDate').isNotEmpty() ? note.field('expDate').format() : '-'}
+                {headerName: "material", value: material.field('material').label()},
+                {headerName: "description", value: material.field('description').val()},
+                {headerName: "lotId", value: material.field('lotId').val()},
+                {headerName: "expDate", value: material.field('expDate').isNotEmpty() ? material.field('expDate').format() : '-'}
             ]
-        })
+        });
     });
     return {
         header: [
