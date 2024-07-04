@@ -51,7 +51,6 @@ function statusSummaryTableWidgetCalculation(record, options) {
                 {headerName: "fm", value: fmCell},
             ]
         });
-        rows.push(row);
     }
     return {
         header: [
