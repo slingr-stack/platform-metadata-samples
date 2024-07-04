@@ -2,71 +2,28 @@ function labourTrackerTableWidgetCalculation(record, options) {
     // TODO: retrieve data
     let labourTrackerData = {};
 
-    // build table
-
-    // build columns
-    let columns = [
-        {
-            label: 'Position',
-            name: 'position'
-        },
-        {
-            label: 'Active workers',
-            name: 'activeWorkers',
-            type: 'html',
-            options: {
-                alignment: 'right',
-                style: {
-                    fontColor: 'green'
-                }
-            }
-        },
-        {
-            label: 'On Break workers',
-            name: 'onBreakWorkers',
-            type: 'html',
-            options: {
-                alignment: 'right',
-                style: {
-                    fontColor: 'orange'
-                }
-            }
-        },
-        {
-            label: 'Idle workers',
-            name: 'idleWorkers',
-            type: 'html',
-            options: {
-                alignment: 'right',
-                style: {
-                    fontColor: 'brown'
-                }
-            }
-        },
-        {
-            label: 'Total',
-            name: 'total',
-            type: 'integer',
-            options: {
-                alignment: 'right'
-            }
-        }
-    ];
-
     // build rows
     let rows = [];
     while (labourTrackerData.hasNext()) {
         let labourTrackerRecord = labourTrackerData.next();
         rows.push({
-            position: labourTrackerRecord.position,
-            activeWorkers: labourTrackerRecord.activeWorkersCount + ' <strong>(' + labourTrackerRecord.activeWorkersPercentage + ')</strong>',
-            onBreakWorkers: labourTrackerRecord.onBreakWorkersCount + ' <strong>(' + labourTrackerRecord.onBreakWorkersPercentage + ')</strong>',
-            idleWorkers: labourTrackerRecord.idleWorkersCount + ' <strong>(' + labourTrackerRecord.idleWorkersPercentage + ')</strong>',
-            total: labourTrackerRecord.total
+            cells: [
+                {headerName: "position", value: labourTrackerRecord.position},
+                {headerName: "activeWorkers", options: {style: {textAlign: "right", color: "green"}}, value: labourTrackerRecord.activeWorkersCount + ' <strong>(' + labourTrackerRecord.activeWorkersPercentage + ')</strong>'},
+                {headerName: "onBreakWorkers", options: {style: {textAlign: "right", color: "orange"}}, value: labourTrackerRecord.onBreakWorkersCount + ' <strong>(' + labourTrackerRecord.onBreakWorkersPercentage + ')</strong>'},
+                {headerName: "idleWorkers", options: {style: {textAlign: "right", color: "brown"}}, value: labourTrackerRecord.idleWorkersCount + ' <strong>(' + labourTrackerRecord.idleWorkersPercentage + ')</strong>'},
+                {headerName: "total", options: {style: {textAlign: "right"}}, value: labourTrackerRecord.total}
+            ]
         });
     }
     return {
-        columns: columns,
+        header: [
+            {name: "position", label: "Position", options: {style: {fontWeight: "bold"}}},
+            {name: "activeWorkers", label: "Active workers", options: {style: {fontWeight: "bold"}}},
+            {name: "onBreakWorkers", label: "On break workers", options: {style: {fontWeight: "bold"}}},
+            {name: "idleWorkers", label: "Idle workers", options: {style: {fontWeight: "bold"}}},
+            {name: "total", label: "Total", options: {style: {fontWeight: "bold"}}}
+        ],
         rows: rows
     };
 }
