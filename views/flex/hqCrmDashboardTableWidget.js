@@ -4,90 +4,40 @@ function newMeetingsTableWidgetCalculation(record, options) {
     let leadsData = sys.data.aggregate('leads', []);
     let leadsTotals = sys.data.aggregate('leads', []);
 
-    // build table
-
-    // build columns
-    let columns = [
-        {
-            label: 'Lead source',
-            name: 'leadSource',
-            options: {
-                alignment: 'center'
-            }
-        }
-    ];
-    while (leadsData.hasNext()) {
-        let leadRecord = leadsData.next();
-        let periods = leadRecord.periods;
-        for (let periodIndex = 0; periodIndex < periods.length; periodIndex++) {
-            let existingColumn = columns.find(column => column.name === periods[periodIndex].name);
-            if (!existingColumn) {
-                columns.push({
-                    label: periods[periodIndex].label,
-                    name: periods[periodIndex].name,
-                    type: 'integer',
-                    options: {
-                        alignment: 'center'
-                    }
-                });
-            }
-        }
-    }
-    columns.push({
-        label: 'YTD',
-        name: 'ytd',
-        type: 'integer',
-        options: {
-            alignment: 'center'
-        }
-    });
-    columns.push({
-        label: 'YTD vs TGT',
-        name: 'ytdVsTgt',
-        type: 'percentage',
-        options: {
-            alignment: 'center',
-            style: {
-                fontColor: 'green'
-            }
-        }
-    });
-
-    // build rows
+    // build data rows
     let rows = [];
     while (leadsData.hasNext()) {
         let leadRecord = leadsData.next();
-        let row = {
-            leadSource: leadRecord.name
-        }
-        let periods = leadRecord.periods;
-        for (let periodIndex = 0; periodIndex < periods.length; periodIndex++) {
-            row[periods[periodIndex].name] = periods[periodIndex].total
-        }
-        row['ytd'] = leadRecord.ytd;
-        row['ytdVsTgt'] = leadRecord.ytdVsTgt;
-        rows.push(row);
+        rows.push({
+            cells: [
+                {headerName: "leadSource", value: leadRecord.name, options: {style: {textAlign: "center"}}},
+                {headerName: "jan", value: leadRecord.jan, options: {style: {textAlign: "center"}}},
+                {headerName: "feb", value: leadRecord.feb, options: {style: {textAlign: "center"}}},
+                {headerName: "mar", value: leadRecord.mar, options: {style: {textAlign: "center"}}},
+                {headerName: "ytd", value: leadRecord.ytd, options: {style: {textAlign: "center"}}},
+                {headerName: "ytdVsTgt", value: leadRecord.ytdVsTgt, options: {style: {color: "green", textAlign: "center"}}}
+            ]
+        });
     }
-    let totalRow = {
-        leadSource: 'Grand Total',
-    };
-    let totalPeriods = leadsTotals.periods;
-    for (let periodIndex = 0; periodIndex < totalPeriods.length; periodIndex++) {
-        totalRow[periodIndex.name] = totalRow[periodIndex].total
-    }
-    totalRow['ytd'] = leadsTotals.ytd;
-    totalRow['ytdVsTgt'] = leadsTotals.ytdVsTgt;
     rows.push({
-        cells: totalRow,
-        options: {
-            style: {
-                fontWeight: 'bold'
-            }
-        }
+        cells: [
+            {headerName: "leadSource", value: "Grand total", options: {style: {textAlign: "center", fontWeight: "bold"}}},
+            {headerName: "jan", value: leadsTotals.jan, options: {style: {textAlign: "center", fontWeight: "bold"}}},
+            {headerName: "feb", value: leadsTotals.feb, options: {style: {textAlign: "center", fontWeight: "bold"}}},
+            {headerName: "mar", value: leadsTotals.mar, options: {style: {textAlign: "center", fontWeight: "bold"}}},
+            {headerName: "ytd", value: leadsTotals.ytd, options: {style: {textAlign: "center", fontWeight: "bold"}}},
+            {headerName: "ytdVsTgt", value: leadsTotals.ytdVsTgt, options: {style: {color: "green", textAlign: "center", fontWeight: "bold"}}}
+        ]
     });
-
     return {
-        columns: columns,
-        rows: rows
+        header: [
+            {name: "leadSource", label: "Lead source", options: {style: {fontWeight: "bold", textAlign: "center"}}},
+            {name: "jan", label: "Jan", options: {style: {fontWeight: "bold", textAlign: "center"}}},
+            {name: "feb", label: "Feb", options: {style: {fontWeight: "bold", textAlign: "center"}}},
+            {name: "mar", label: "Mar", options: {style: {fontWeight: "bold", textAlign: "center"}}},
+            {name: "ytd", label: "YTD", options: {style: {fontWeight: "bold", textAlign: "center"}}},
+            {name: "ytdVsTgt", label: "YTD vs TGT", options: {style: {fontWeight: "bold", textAlign: "center"}}}
+        ],
+        body: rows
     };
 }
