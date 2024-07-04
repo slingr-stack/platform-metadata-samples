@@ -5,7 +5,7 @@ function materialsTableWidgetCalculation(record, options) {
         rows.push({
             cells: [
                 {headerName: "material", value: note.field('material').label()},
-                {headerName: "description", value: "Alice"},
+                {headerName: "description", value: note.field('description').val()},
                 {headerName: "lotId", value: note.field('lotId').val()},
                 {headerName: "expDate", value: note.field('expDate').isNotEmpty() ? note.field('expDate').format() : '-'}
             ]
