@@ -18,6 +18,6 @@ function instrumentsTableWidgetCalculation(record, options) {
             {name: "instrument", label: "Instrument", options: {style: {fontWeight: "bold"}}},
             {name: "calibration", label: "Calibration", options: {style: {fontWeight: "bold"}}}
         ],
-        rows: rows
+        body: rows
     };
 }
