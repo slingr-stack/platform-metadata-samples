@@ -5,7 +5,7 @@ function notesTableWidgetCalculation(record, options) {
     let from = options.from || 0;
     let to = options.to || notes.length;
     // apply filtering based on the 'note' column
-    notes = notes.filter(function(noteItem) {
+    notes = notes.filter(function (noteItem) {
         let noteValue = noteItem.note
         if (filters.note && noteValue.toLowerCase().includes(filters.note.toLowerCase())) {
             return true;
@@ -16,8 +16,10 @@ function notesTableWidgetCalculation(record, options) {
     let notesBatch = notes.slice(from, to);
     notesBatch.forEach(function (noteItem) {
         rows.push({
-            user: noteItem.user,
-            note: noteItem.note
+            cells: [
+                {headerName: "user", value: noteItem.user},
+                {headerName: "note", value: noteItem.note}
+            ]
         });
     });
     return {
