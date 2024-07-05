@@ -79,9 +79,9 @@ function resultsSummaryTableWidgetCalculation(record, options) {
     let customerRow = [{headerName: "partitionId", value: "Customer"}];
     partitions.forEach(function (partition) {
         let partitionId = partition.id();
-        customerRows.push(
+        customerRow.push(
             {
-                headerName: partition.id(),
+                headerName: partitionId,
                 value: resultsData[partitionId].customer
             }
         );
@@ -94,7 +94,7 @@ function resultsSummaryTableWidgetCalculation(record, options) {
         let dilutionFactor = resultsData[partitionId].dilutionFactor;
         dilutionFactorRow.push(
             {
-                headerName: partition.id(),
+                headerName: partitionId,
                 value: `${dilutionFactor} <slingr-action action="changeDilutionFactor" recordId="${partitionId}">Change</slingr-action>`
             }
         );
@@ -107,7 +107,7 @@ function resultsSummaryTableWidgetCalculation(record, options) {
         let notesCount = resultsData[partitionId].notes.length;
         notesRow.push(
             {
-                headerName: partition.id(),
+                headerName: partitionId,
                 value: `${notesCount} <slingr-action action="viewNotes" recordId="${partitionId}">ViewEdit</slingr-action>`,
             }
         );
@@ -116,7 +116,7 @@ function resultsSummaryTableWidgetCalculation(record, options) {
     // arsenic
     let arsenicRow = [{headerName: "partitionId", value: "Arsenic"}];
     partitions.forEach(function (partition) {
-        let partitionId = partition.id();
+        let partitionId = partitionId;
         let arsenicResult = resultsData[partitionId].arsenicResult;
         arsenicRow.push(
             {
@@ -133,7 +133,7 @@ function resultsSummaryTableWidgetCalculation(record, options) {
         let cadmiumResult = resultsData[partitionId].cadmiumResult;
         cadmiumRow.push(
             {
-                headerName: partition.id(),
+                headerName: partitionId,
                 value: `${cadmiumResult} <slingr-icon type="${getIconType(cadmiumResult)}" color="${getIconColor(cadmiumResult)}"></slingr-icon>`,
             }
         );

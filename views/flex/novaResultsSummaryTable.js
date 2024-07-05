@@ -1,32 +1,40 @@
-
 function resultsSummaryTableWidgetCalculation(record, options) {
     // TODO: retrieve data
-    let resultsData = sys.data.aggregate('samples', {})
+    let samples = sys.data.aggregate('samples', {});
+    let partitions = sys.data.aggregate('partitions', {});
 
-    // build table
+    // build header
+    let header = [
+        {name: "partitionId", label: "Partition ID", options: {style: {fontWeight: "bold"}}}
+    ];
+    partitions.forEach(function (partition) {
+        header.push(
+            {
+                name: partition.id(),
+                label: partition.label(),
+                value: `<slingr-action action="openPartition" recordId="${partition.id()}">Open partition</slingr-action>`,
+                options: {style: {fontWeight: "bold"}}
+            }
+        );
+    });
 
-    // build rows
+    // build body
     let rows = [];
-    while (resultsData.hasNext()) {
-        let result = resultsData.next();
-        let partitionId = result.partitionId;
-        let partitionCell = `<slingr-action action="openResults" recordId="${partitionId}">Open results</slingr-action>`;
-        rows.push({
-            cells: [
-                {headerName: "partitionId", value: partitionCell},
-                {headerName: "dwc242406180013", value: result.sample3.raw + '<br>' + result.sample3.result, options: {style: {backgroundColor: result.sample3.hasIssues() ? 'red' : 'inherit'}}},
-                {headerName: "dwc242406180012", value: result.sample2.raw + '<br>' + result.sample2.result, options: {style: {backgroundColor: result.sample2.hasIssues() ? 'red' : 'inherit'}}},
-                {headerName: "dwc242406180011", value: result.sample1.raw + '<br>' + result.sample1.result, options: {style: {backgroundColor: result.sample1.hasIssues() ? 'red' : 'inherit'}}},
-            ]
+    while (samples.hasNext()) {
+        let sample = samples.next();
+        let samplePartitions = sample.field('partitions').val();
+        let row = [{headerName: "partitionId", value: sample.label()}];
+        samplePartitions.forEach(function (samplePartition) {
+            row.push({
+                headerName: samplePartition.id,
+                value: samplePartition.raw + '<br>' + samplePartition.result,
+                options: {style: {backgroundColor: samplePartition.hasIssues() ? 'red' : 'inherit'}}
+            });
         });
+        rows.push({cells: row});
     }
     return {
-        header: [
-            {name: "partitionId", label: "Partition ID", options: {style: {fontWeight: "bold"}}},
-            {name: "dwc242406180013", label: "DWC24-240618001-3", options: {style: {fontWeight: "bold"}}},
-            {name: "dwc242406180012", label: "DWC24-240618001-2", options: {style: {fontWeight: "bold"}}},
-            {name: "dwc242406180011", label: "DWC24-240618001-1", options: {style: {fontWeight: "bold"}}}
-        ],
+        header: header,
         body: rows
     };
 }
