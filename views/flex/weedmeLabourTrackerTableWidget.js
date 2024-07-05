@@ -24,6 +24,6 @@ function labourTrackerTableWidgetCalculation(record, options) {
             {name: "idleWorkers", label: "Idle workers", options: {style: {fontWeight: "bold"}}},
             {name: "total", label: "Total", options: {style: {fontWeight: "bold"}}}
         ],
-        rows: rows
+        body: rows
     };
 }
