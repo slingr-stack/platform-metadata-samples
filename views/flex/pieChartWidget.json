@@ -1,0 +1,6 @@
+{
+  "type": "chart",
+  "label": "Inventory",
+  "name": "inventory",
+  "script": "js/inventoryChartWidgetCalculation"
+}
