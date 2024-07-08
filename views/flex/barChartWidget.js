@@ -1,6 +1,6 @@
 function salesPerProductChartWidgetCalculation(record, options) {
     let aggregateResult = sys.data.aggregate('sales', [
-        { group: { by: 'product', totalSales: 'sum(quantity * price)' } }
+        { group: { by: 'product', totalSales: 'sum(total)' } }
     ]);
     let labels = [];
     let data = [];
