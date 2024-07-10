@@ -1,4 +1,3 @@
-
 function sampleSummaryTableWidgetCalculation(record, options) {
     // TODO: retrieve data
     let analysesData = sys.data.aggregate('analyses', []);
@@ -10,15 +9,15 @@ function sampleSummaryTableWidgetCalculation(record, options) {
     while (analysesData.hasNext()) {
         let analysisRecord = analysesData.next();
         rows.push({
-            cells: [
-                {headerName: "analysisCategory", value: analysisRecord.field('name').val()},
-                {headerName: "status", value: analysisRecord.field('status').label()},
-                {headerName: "done", value: analysisRecord.pending + '/' + analysisRecord.done},
-                {headerName: "verified", value: analysisRecord.pendingVerification + '/' + analysisRecord.verified}
-            ]
+            id: analysisRecord.id(),
+            cells: {
+                analysisCategory: analysisRecord.field('name').val(),
+                status: analysisRecord.field('status').label(),
+                done: analysisRecord.pending + '/' + analysisRecord.done,
+                verified: analysisRecord.pendingVerification + '/' + analysisRecord.verified
+            }
         });
     }
-
     return {
         header: [
             {name: "analysisCategory", label: "Analysis category", style: "font-weight: bold; text-align: center"},

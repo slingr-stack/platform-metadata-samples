@@ -1,14 +1,11 @@
-
 function materialsTableWidgetCalculation(record, options) {
     let rows = [];
     record.field('materials').each(function (material) {
         rows.push({
-            cells: [
-                {headerName: "material", value: material.field('material').label()},
-                {headerName: "description", value: material.field('description').val()},
-                {headerName: "lotId", value: material.field('lotId').val()},
-                {headerName: "expDate", value: material.field('expDate').isNotEmpty() ? material.field('expDate').format() : '-'}
-            ]
+            material: material.field('material').label(),
+            description: material.field('description').val(),
+            lotId: material.field('lotId').val(),
+            expDate: material.field('expDate').isNotEmpty() ? material.field('expDate').format() : '-'
         });
     });
     return {

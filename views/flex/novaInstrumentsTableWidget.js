@@ -1,14 +1,11 @@
-
 function instrumentsTableWidgetCalculation(record, options) {
     let rows = [];
     record.field('instruments').each(function (instrument) {
         rows.push({
-            cells: [
-                {headerName: "instrumentType", value: instrument.field('type').label()},
-                {headerName: "description", value: instrument.field('description').val()},
-                {headerName: "instrument", value: instrument.field('instrument').val()},
-                {headerName: "calibration", value: instrument.field('calibrationDue').isNotEmpty() ? material.field('calibrationDue').format() : '-'}
-            ]
+            instrumentType: instrument.field('type').label(),
+            description: instrument.field('description').val(),
+            instrument: instrument.field('instrument').val(),
+            calibration: instrument.field('calibrationDue').isNotEmpty() ? material.field('calibrationDue').format() : '-'
         });
     });
     return {

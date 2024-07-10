@@ -8,22 +8,16 @@ function generateTable(options) {
         ],
         body: [
             {
-                id: "row1",
-                cells: [
-                    {headerName: "id", value: "1"},
-                    {headerName: "name", value: "Alice"},
-                    {headerName: "age", value: "30", style: "text-align: right"},
-                    {headerName: "country", value: "USA"}
-                ]
+                id: "1",
+                name: "Alice",
+                age: {value: 30, style: "text-align: right"},
+                country: "USA"
             },
             {
-                id: "row2",
-                cells: [
-                    {headerName: "id", value: "2"},
-                    {headerName: "name", value: "Bob"},
-                    {headerName: "age", value: "25", style: "text-align: right"},
-                    {headerName: "country", value: "Canada"}
-                ]
+                id: "2",
+                name: "Bob",
+                age: {value: 40, style: "text-align: right"},
+                country: "Canda"
             }
         ]
     };

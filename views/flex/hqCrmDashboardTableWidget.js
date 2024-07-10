@@ -1,4 +1,3 @@
-
 function newMeetingsTableWidgetCalculation(record, options) {
     // TODO: retrieve data
     let leadsData = sys.data.aggregate('leads', []);
@@ -9,25 +8,21 @@ function newMeetingsTableWidgetCalculation(record, options) {
     while (leadsData.hasNext()) {
         let leadRecord = leadsData.next();
         rows.push({
-            cells: [
-                {headerName: "leadSource", value: leadRecord.name, style: "text-align: center"},
-                {headerName: "jan", value: leadRecord.jan, style: "text-align: center"},
-                {headerName: "feb", value: leadRecord.feb, style: "text-align: center"},
-                {headerName: "mar", value: leadRecord.mar, style: "text-align: center"},
-                {headerName: "ytd", value: leadRecord.ytd, style: "text-align: center"},
-                {headerName: "ytdVsTgt", value: leadRecord.ytdVsTgt, style: "text-align: center; color: green"}
-            ]
+            leadSource: {value: leadRecord.name, style: "text-align: center"},
+            jan: {value: leadRecord.jan, style: "text-align: center"},
+            feb: {value: leadRecord.feb, style: "text-align: center"},
+            mar: {value: leadRecord.mar, style: "text-align: center"},
+            ytd: {value: leadRecord.ytd, style: "text-align: center"},
+            ytdVsTgt: {value: leadRecord.ytdVsTgt, style: "text-align: center; color: green"}
         });
     }
     rows.push({
-        cells: [
-            {headerName: "leadSource", value: "Grand total", style: "font-weight: bold; text-align: center"},
-            {headerName: "jan", value: leadsTotals.jan, style: "font-weight: bold; text-align: center"},
-            {headerName: "feb", value: leadsTotals.feb, style: "font-weight: bold; text-align: center"},
-            {headerName: "mar", value: leadsTotals.mar, style: "font-weight: bold; text-align: center"},
-            {headerName: "ytd", value: leadsTotals.ytd, style: "font-weight: bold; text-align: center"},
-            {headerName: "ytdVsTgt", value: leadsTotals.ytdVsTgt, style: "color: green; font-weight: bold; text-align: center"}
-        ]
+        leadSource: {value: "Grand total", style: "font-weight: bold; text-align: center"},
+        jan: {value: leadsTotals.jan, style: "font-weight: bold; text-align: center"},
+        feb: {value: leadsTotals.feb, style: "font-weight: bold; text-align: center"},
+        mar: {value: leadsTotals.mar, style: "font-weight: bold; text-align: center"},
+        ytd: {value: leadsTotals.ytd, style: "font-weight: bold; text-align: center"},
+        ytdVsTgt: {value: leadsTotals.ytdVsTgt, style: "color: green; font-weight: bold; text-align: center"}
     });
     return {
         header: [

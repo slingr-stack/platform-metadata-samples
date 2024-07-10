@@ -38,18 +38,16 @@ function statusSummaryTableWidgetCalculation(record, options) {
             fmCell = `<slingr-label type="${fmtStatusCellType}">${sample.field('fmStatus').label()}</slingr-label>`;
         }
         rows.push({
-            cells: [
-                {headerName: "sampleId", value: sampleIdCell},
-                {headerName: "name", value: sample.field('name').val()},
-                {headerName: "lotId", value: sample.field('lotId').val()},
-                {headerName: "batchId", value: sample.field('batchId').val()},
-                {headerName: "matrix", value: sample.field('matrix').val()},
-                {headerName: "type", value: sample.field('type').val()},
-                {headerName: "status", value: statusCell},
-                {headerName: "wac", value: wacCell},
-                {headerName: "mst", value: mstCell},
-                {headerName: "fm", value: fmCell},
-            ]
+            sampleId: sampleIdCell,
+            name: sample.field('name').val(),
+            lotId: sample.field('lotId').val(),
+            batchId: sample.field('batchId').val(),
+            matrix: sample.field('matrix').val(),
+            type: sample.field('type').val(),
+            status: statusCell,
+            wac: wacCell,
+            mst: mstCell,
+            fm: fmCell
         });
     }
     return {

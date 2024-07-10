@@ -5,18 +5,11 @@ function resultsSummaryTableWidgetCalculation(record, options) {
     let samples = sys.data.find('samples', {}).toArray();
 
     // build header
-    let headers = [];
-    // partitions header
-    let partitionHeader = [
-        {name: "partitionId", label: "Partition id"}
-    ];
+    let headers = [{name: "partitionId", label: "Partition id"}];
     partitions.forEach(function (partition) {
-        partitionHeader.push(
+        headers.push(
             {name: partition.id(), label: partition.label()}
         );
-    });
-    headers.push({
-        cells: partitionHeader
     });
 
     // build body
@@ -35,95 +28,58 @@ function resultsSummaryTableWidgetCalculation(record, options) {
     // build rows
     let rows = [];
     // samples row
-    let sampleRow = [
-        {headerName: "partitionId", value: "Sample name"}
-    ];
+    let sampleRow = {partitionId: "Sample name"};
     partitions.forEach(function (partition) {
         let partitionId = partition.id();
-        positionBatchRow.push(
-            {
-                headerName: partition.id(),
-                value: `<slingr-action action="openResults" recordId="${partitionId}">Results</slingr-action>`
-            }
-        );
+        sampleRow[partitionId] = `<slingr-action action="openResults" recordId="${partitionId}">Results</slingr-action>`;
     });
-    rows.push({cells: sampleRow});
+    rows.push(sampleRow);
     // position batch row
-    let positionBatchRow = [{headerName: "partitionId", value: "Position batch"}];
+    let positionBatchRow = {partitionId: "Position batch"};
     partitions.forEach(function (partition) {
         let partitionId = partition.id();
-        positionBatchRow.push(
-            {
-                headerName: partition.id(),
-                value: resultsData[partitionId].positionBatch
-            }
-        );
+        positionBatchRow[partitionId] = resultsData[partitionId].positionBatch;
     });
-    rows.push({cells: positionBatchRow});
+    rows.push(positionBatchRow);
     // customers row
-    let customerRow = [{headerName: "partitionId", value: "Customer"}];
+    let customerRow = {partitionId: "Customer"};
     partitions.forEach(function (partition) {
         let partitionId = partition.id();
-        customerRow.push(
-            {
-                headerName: partitionId,
-                value: resultsData[partitionId].customer
-            }
-        );
+        customerRow[partitionId] = resultsData[partitionId].customer
     });
-    rows.push({cells: customerRow});
+    rows.push(customerRow);
     // dilution factor
-    let dilutionFactorRow = [{headerName: "partitionId", value: "Dilution factor"}];
+    let dilutionFactorRow = {partitionId: "Dilution factor"};
     partitions.forEach(function (partition) {
         let partitionId = partition.id();
         let dilutionFactor = resultsData[partitionId].dilutionFactor;
-        dilutionFactorRow.push(
-            {
-                headerName: partitionId,
-                value: `${dilutionFactor} <slingr-action action="changeDilutionFactor" recordId="${partitionId}">Change</slingr-action>`
-            }
-        );
+        dilutionFactorRow[partitionId] = `${dilutionFactor} <slingr-action action="changeDilutionFactor" recordId="${partitionId}">Change</slingr-action>`;
     });
-    rows.push({cells: dilutionFactorRow});
+    rows.push(dilutionFactorRow);
     // notes
-    let notesRow = [{headerName: "partitionId", value: "Notes"}];
+    let notesRow = {partitionId: "Notes"};
     partitions.forEach(function (partition) {
         let partitionId = partition.id();
         let notesCount = resultsData[partitionId].notes.length;
-        notesRow.push(
-            {
-                headerName: partitionId,
-                value: `${notesCount} <slingr-action action="viewNotes" recordId="${partitionId}">ViewEdit</slingr-action>`,
-            }
-        );
+        notesRow[partitionId] = `${notesCount} <slingr-action action="viewNotes" recordId="${partitionId}">ViewEdit</slingr-action>`;
     });
-    rows.push({cells: notesRow});
+    rows.push(notesRow);
     // arsenic
-    let arsenicRow = [{headerName: "partitionId", value: "Arsenic"}];
+    let arsenicRow = {partitionId: "Arsenic"};
     partitions.forEach(function (partition) {
-        let partitionId = partitionId;
+        let partitionId = partition.id();
         let arsenicResult = resultsData[partitionId].arsenicResult;
-        arsenicRow.push(
-            {
-                headerName: partition.id(),
-                value: `${arsenicResult} <slingr-icon type="${getIconType(arsenicResult)}" color="${getIconColor(arsenicResult)}"></slingr-icon>`,
-            }
-        );
+        arsenicRow[partitionId] = `${arsenicResult} <slingr-icon type="${getIconType(arsenicResult)}" color="${getIconColor(arsenicResult)}"></slingr-icon>`;
     });
-    rows.push({cells: arsenicRow});
+    rows.push(arsenicRow);
     // cadmium
-    let cadmiumRow = [{headerName: "partitionId", value: "Cadmium"}];
+    let cadmiumRow = {partitionId: "Cadmium"};
     partitions.forEach(function (partition) {
         let partitionId = partition.id();
         let cadmiumResult = resultsData[partitionId].cadmiumResult;
-        cadmiumRow.push(
-            {
-                headerName: partitionId,
-                value: `${cadmiumResult} <slingr-icon type="${getIconType(cadmiumResult)}" color="${getIconColor(cadmiumResult)}"></slingr-icon>`,
-            }
-        );
+        cadmiumRow[partitionId] = `${cadmiumResult} <slingr-icon type="${getIconType(cadmiumResult)}" color="${getIconColor(cadmiumResult)}"></slingr-icon>`;
     });
-    rows.push({cells: cadmiumRow});
+    rows.push(arsenicRow);
 
     return {
         header: headers,

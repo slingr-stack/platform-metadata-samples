@@ -16,10 +16,8 @@ function notesTableWidgetCalculation(record, options) {
     let notesBatch = notes.slice(from, to);
     notesBatch.forEach(function (noteItem) {
         rows.push({
-            cells: [
-                {headerName: "user", value: noteItem.user},
-                {headerName: "note", value: noteItem.note}
-            ]
+            user: noteItem.user,
+            note: noteItem.note
         });
     });
     return {

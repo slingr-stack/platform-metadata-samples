@@ -23,15 +23,14 @@ function resultsSummaryTableWidgetCalculation(record, options) {
     while (samples.hasNext()) {
         let sample = samples.next();
         let samplePartitions = sample.field('partitions').val();
-        let row = [{headerName: "partitionId", value: sample.label()}];
+        let row = {partitionId: sample.label()};
         samplePartitions.forEach(function (samplePartition) {
-            row.push({
-                headerName: samplePartition.id,
+            row[samplePartition.id] = {
                 value: samplePartition.raw + '<br>' + samplePartition.result,
                 style: samplePartition.hasIssues() ? "background-color: red" : ""
-            });
+            };
         });
-        rows.push({cells: row});
+        rows.push(row);
     }
     return {
         header: header,
