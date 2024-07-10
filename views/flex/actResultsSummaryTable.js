@@ -18,35 +18,6 @@ function resultsSummaryTableWidgetCalculation(record, options) {
     headers.push({
         cells: partitionHeader
     });
-    // samples header
-    let samplesHeader = [
-        {name: "sampleName", label: "Sample name"}
-    ];
-    samples.forEach(function (sample) {
-        samplesHeader.push(
-            {name: sample.id(), label: sample.label()}
-        );
-    });
-    headers.push({
-        cells: samplesHeader
-    });
-    // samples result header
-    let sampleResultsHeader = [
-        {name: "sampleResults", label: "Sample results"}
-    ];
-    samples.forEach(function (sample) {
-        let sampleId = sample.id();
-        sampleResultsHeader.push(
-            {
-                name: sampleId,
-                label: sample.label(),
-                value: `<slingr-action action="openResults" recordId="${sampleId}">Results</slingr-action>`
-            }
-        );
-    });
-    headers.push({
-        cells: sampleResultsHeader
-    });
 
     // build body
     let getIconType = function (value) {
@@ -63,6 +34,20 @@ function resultsSummaryTableWidgetCalculation(record, options) {
     };
     // build rows
     let rows = [];
+    // samples header
+    let sampleRow = [
+        {headerName: "partitionId", value: "Sample name"}
+    ];
+    partitions.forEach(function (partition) {
+        let partitionId = partition.id();
+        positionBatchRow.push(
+            {
+                headerName: partition.id(),
+                value: `<slingr-action action="openResults" recordId="${partitionId}">Results</slingr-action>`
+            }
+        );
+    });
+    rows.push({cells: sampleRow});
     // position batch row
     let positionBatchRow = [{headerName: "partitionId", value: "Position batch"}];
     partitions.forEach(function (partition) {
