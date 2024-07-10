@@ -1,0 +1,6 @@
+{
+  "type": "chart",
+  "label": "Total sales per product",
+  "name": "totalSalesPerProduct",
+  "script": "js/salesPerProductChartWidgetCalculation"
+}

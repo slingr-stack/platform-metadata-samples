@@ -1,34 +1,23 @@
 
 function materialsTableWidgetCalculation(record, options) {
-    let columns = [
-        {
-            label: 'Material',
-            name: 'material'
-        },
-        {
-            label: 'Description',
-            name: 'description'
-        },
-        {
-            label: 'Lot ID',
-            name: 'lotId'
-        },
-        {
-            label: 'Exp. Date',
-            name: 'expDate'
-        }
-    ];
     let rows = [];
-    record.field('notes').each(function (note) {
+    record.field('materials').each(function (material) {
         rows.push({
-            material: note.field('material').label(),
-            description: note.field('description').isNotEmpty() ? note.field('description').val() : '-',
-            lotId: note.field('lotId').val(),
-            expDate: note.field('expDate').isNotEmpty() ? note.field('expDate').format() : '-'
+            cells: [
+                {headerName: "material", value: material.field('material').label()},
+                {headerName: "description", value: material.field('description').val()},
+                {headerName: "lotId", value: material.field('lotId').val()},
+                {headerName: "expDate", value: material.field('expDate').isNotEmpty() ? material.field('expDate').format() : '-'}
+            ]
         });
     });
     return {
-        columns: columns,
-        rows: rows
+        header: [
+            {name: "material", label: "Material", style: "font-weight: bold;"},
+            {name: "description", label: "Description", style: "font-weight: bold;"},
+            {name: "lotId", label: "Lot ID", style: "font-weight: bold;"},
+            {name: "expDate", label: "Exp. Date", style: "font-weight: bold;"}
+        ],
+        body: rows
     };
 }

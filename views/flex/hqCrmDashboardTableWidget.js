@@ -4,90 +4,40 @@ function newMeetingsTableWidgetCalculation(record, options) {
     let leadsData = sys.data.aggregate('leads', []);
     let leadsTotals = sys.data.aggregate('leads', []);
 
-    // build table
-
-    // build columns
-    let columns = [
-        {
-            label: 'Lead source',
-            name: 'leadSource',
-            options: {
-                alignment: 'center'
-            }
-        }
-    ];
-    while (leadsData.hasNext()) {
-        let leadRecord = leadsData.next();
-        let periods = leadRecord.periods;
-        for (let periodIndex = 0; periodIndex < periods.length; periodIndex++) {
-            let existingColumn = columns.find(column => column.name === periods[periodIndex].name);
-            if (!existingColumn) {
-                columns.push({
-                    label: periods[periodIndex].label,
-                    name: periods[periodIndex].name,
-                    type: 'integer',
-                    options: {
-                        alignment: 'center'
-                    }
-                });
-            }
-        }
-    }
-    columns.push({
-        label: 'YTD',
-        name: 'ytd',
-        type: 'integer',
-        options: {
-            alignment: 'center'
-        }
-    });
-    columns.push({
-        label: 'YTD vs TGT',
-        name: 'ytdVsTgt',
-        type: 'percentage',
-        options: {
-            alignment: 'center',
-            style: {
-                fontColor: 'green'
-            }
-        }
-    });
-
-    // build rows
+    // build data rows
     let rows = [];
     while (leadsData.hasNext()) {
         let leadRecord = leadsData.next();
-        let row = {
-            leadSource: leadRecord.name
-        }
-        let periods = leadRecord.periods;
-        for (let periodIndex = 0; periodIndex < periods.length; periodIndex++) {
-            row[periods[periodIndex].name] = periods[periodIndex].total
-        }
-        row['ytd'] = leadRecord.ytd;
-        row['ytdVsTgt'] = leadRecord.ytdVsTgt;
-        rows.push(row);
+        rows.push({
+            cells: [
+                {headerName: "leadSource", value: leadRecord.name, style: "text-align: center"},
+                {headerName: "jan", value: leadRecord.jan, style: "text-align: center"},
+                {headerName: "feb", value: leadRecord.feb, style: "text-align: center"},
+                {headerName: "mar", value: leadRecord.mar, style: "text-align: center"},
+                {headerName: "ytd", value: leadRecord.ytd, style: "text-align: center"},
+                {headerName: "ytdVsTgt", value: leadRecord.ytdVsTgt, style: "text-align: center; color: green"}
+            ]
+        });
     }
-    let totalRow = {
-        leadSource: 'Grand Total',
-    };
-    let totalPeriods = leadsTotals.periods;
-    for (let periodIndex = 0; periodIndex < totalPeriods.length; periodIndex++) {
-        totalRow[periodIndex.name] = totalRow[periodIndex].total
-    }
-    totalRow['ytd'] = leadsTotals.ytd;
-    totalRow['ytdVsTgt'] = leadsTotals.ytdVsTgt;
     rows.push({
-        cells: totalRow,
-        options: {
-            style: {
-                fontWeight: 'bold'
-            }
-        }
+        cells: [
+            {headerName: "leadSource", value: "Grand total", style: "font-weight: bold; text-align: center"},
+            {headerName: "jan", value: leadsTotals.jan, style: "font-weight: bold; text-align: center"},
+            {headerName: "feb", value: leadsTotals.feb, style: "font-weight: bold; text-align: center"},
+            {headerName: "mar", value: leadsTotals.mar, style: "font-weight: bold; text-align: center"},
+            {headerName: "ytd", value: leadsTotals.ytd, style: "font-weight: bold; text-align: center"},
+            {headerName: "ytdVsTgt", value: leadsTotals.ytdVsTgt, style: "color: green; font-weight: bold; text-align: center"}
+        ]
     });
-
     return {
-        columns: columns,
-        rows: rows
+        header: [
+            {name: "leadSource", label: "Lead source", style: "font-weight: bold; text-align: center"},
+            {name: "jan", label: "Jan", style: "font-weight: bold; text-align: center"},
+            {name: "feb", label: "Feb", style: "font-weight: bold; text-align: center"},
+            {name: "mar", label: "Mar", style: "font-weight: bold; text-align: center"},
+            {name: "ytd", label: "YTD", style: "font-weight: bold; text-align: center"},
+            {name: "ytdVsTgt", label: "YTD vs TGT", style: "font-weight: bold; text-align: center"}
+        ],
+        body: rows
     };
 }

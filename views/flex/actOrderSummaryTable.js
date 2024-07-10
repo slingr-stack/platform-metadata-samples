@@ -3,58 +3,6 @@ function statusSummaryTableWidgetCalculation(record, options) {
 
     // build table
 
-    // build columns
-    let columns = [
-        {
-            label: 'Sample ID',
-            name: 'sampleId',
-            type: 'html'
-        },
-        {
-            label: 'Name',
-            name: 'name'
-        },
-        {
-            label: 'Lot ID',
-            name: 'lotId'
-        },
-        {
-            label: 'Batch ID',
-            name: 'batchId'
-        },
-        {
-            label: 'Matrix',
-            name: 'matrix'
-        },
-        {
-            label: 'Type',
-            name: 'Type'
-        },
-        {
-            label: 'Disposal Status',
-            name: 'disposalStatus'
-        },
-        {
-            label: 'Status',
-            name: 'status',
-            type: 'html'
-        },
-        {
-            label: 'WAC',
-            name: 'wac',
-            type: 'html'
-        },
-        {
-            label: 'MST',
-            name: 'mst',
-            type: 'html'
-        },
-        {
-            label: 'FM',
-            name: 'fm',
-            type: 'html'
-        }
-    ];
     let getLabelType = function (status) {
         if (status === 'verified' || status === 'pushished') {
             return 'success';
@@ -89,22 +37,35 @@ function statusSummaryTableWidgetCalculation(record, options) {
             let fmtStatusCellType = getLabelType(sample.field('fmtStatus').val());
             fmCell = `<slingr-label type="${fmtStatusCellType}">${sample.field('fmStatus').label()}</slingr-label>`;
         }
-        let row = {
-            sampleId: sampleIdCell,
-            name: sample.field('name').val(),
-            lotId: sample.field('lotId').val(),
-            batchId: sample.field('batchId').val(),
-            matrix: sample.field('matrix').val(),
-            type: sample.field('type').val(),
-            status: statusCell,
-            wac: wacCell,
-            mst: mstCell,
-            fm: fmCell
-        };
-        rows.push(row);
+        rows.push({
+            cells: [
+                {headerName: "sampleId", value: sampleIdCell},
+                {headerName: "name", value: sample.field('name').val()},
+                {headerName: "lotId", value: sample.field('lotId').val()},
+                {headerName: "batchId", value: sample.field('batchId').val()},
+                {headerName: "matrix", value: sample.field('matrix').val()},
+                {headerName: "type", value: sample.field('type').val()},
+                {headerName: "status", value: statusCell},
+                {headerName: "wac", value: wacCell},
+                {headerName: "mst", value: mstCell},
+                {headerName: "fm", value: fmCell},
+            ]
+        });
     }
     return {
-        columns: columns,
-        rows: rows
+        header: [
+            {name: "sampleId", label: "Sample ID"},
+            {name: "name", label: "Name"},
+            {name: "lotId", label: "Lot ID"},
+            {name: "batchId", label: "Batch ID"},
+            {name: "matrix", label: "Matrix"},
+            {name: "type", label: "Type"},
+            {name: "disposalStatus", label: "Disposal status"},
+            {name: "status", label: "Status"},
+            {name: "wac", label: "WAC"},
+            {name: "mst", label: "MST"},
+            {name: "fm", label: "FM"},
+        ],
+        body: rows
     };
 }

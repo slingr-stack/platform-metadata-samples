@@ -1,62 +1,40 @@
-
 function resultsSummaryTableWidgetCalculation(record, options) {
     // TODO: retrieve data
-    let resultsData = sys.data.aggregate('samples', {})
+    let samples = sys.data.aggregate('samples', {});
+    let partitions = sys.data.aggregate('partitions', {});
 
-    // build table
-
-    // build columns
-    let columns = [
-        {
-            label: 'Partition ID',
-            name: 'partitionId',
-            type: 'html',
-            options: {
-                sticky: true
-            }
-        }
+    // build header
+    let header = [
+        {name: "partitionId", label: "Partition ID", style: "font-weight: bold"}
     ];
-    // build columns dynamically based on data
-    while (resultsData.hasNext()) {
-        let result = resultsData.next();
-        let services = result.analysisServices;
-        for (let serviceIndex = 0; serviceIndex < services.length; serviceIndex++) {
-            let existingColumn = columns.find(column => column.name === services[serviceIndex].name);
-            if (!existingColumn) {
-                columns.push({
-                    label: services[serviceIndex].label,
-                    name: services[serviceIndex].name,
-                    type: 'html'
-                });
+    partitions.forEach(function (partition) {
+        header.push(
+            {
+                name: partition.id(),
+                label: partition.label(),
+                value: `<slingr-action action="openPartition" recordId="${partition.id()}">Open partition</slingr-action>`,
+                style: "font-weight: bold"
             }
-        }
-    }
+        );
+    });
 
-    // build rows
+    // build body
     let rows = [];
-    while (resultsData.hasNext()) {
-        let result = resultsData.next();
-        let partitionId = result.partitionId;
-        let partitionCell = `<slingr-entity-action action="openResults" recordId="${partitionId}">Open results</slingr-entity-action>`;
-        let row = {
-            partitionId: partitionCell,
-        };
-        let services = result.analysisServices;
-        for (let serviceIndex = 0; serviceIndex < services.length; serviceIndex++) {
-            let serviceValueCell = {
-                value: services[serviceIndex].raw + '<br>' + services[serviceIndex].result,
-                style: {}
-            };
-            // highlight cell value
-            if (services[serviceIndex].raw > 0.5) {
-                serviceValueCell.style.backgroundColor = 'red';
-            }
-            row[services[serviceIndex].name] = serviceValueCell
-        }
-        rows.push(row);
+    while (samples.hasNext()) {
+        let sample = samples.next();
+        let samplePartitions = sample.field('partitions').val();
+        let row = [{headerName: "partitionId", value: sample.label()}];
+        samplePartitions.forEach(function (samplePartition) {
+            row.push({
+                headerName: samplePartition.id,
+                value: samplePartition.raw + '<br>' + samplePartition.result,
+                style: samplePartition.hasIssues() ? "background-color: red" : ""
+            });
+        });
+        rows.push({cells: row});
     }
     return {
-        columns: columns,
-        rows: rows
+        header: header,
+        body: rows
     };
 }
