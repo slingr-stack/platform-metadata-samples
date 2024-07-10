@@ -13,10 +13,10 @@ function instrumentsTableWidgetCalculation(record, options) {
     });
     return {
         header: [
-            {name: "instrumentType", label: "Material", options: {style: {fontWeight: "bold"}}},
-            {name: "description", label: "Description", options: {style: {fontWeight: "bold"}}},
-            {name: "instrument", label: "Instrument", options: {style: {fontWeight: "bold"}}},
-            {name: "calibration", label: "Calibration", options: {style: {fontWeight: "bold"}}}
+            {name: "instrumentType", label: "Material", style: "font-weight: bold;"},
+            {name: "description", label: "Description", style: "font-weight: bold;"},
+            {name: "instrument", label: "Instrument", style: "font-weight: bold;"},
+            {name: "calibration", label: "Calibration", style: "font-weight: bold;"}
         ],
         body: rows
     };

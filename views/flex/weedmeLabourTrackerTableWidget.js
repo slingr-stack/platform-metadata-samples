@@ -9,20 +9,20 @@ function labourTrackerTableWidgetCalculation(record, options) {
         rows.push({
             cells: [
                 {headerName: "position", value: labourTrackerRecord.position},
-                {headerName: "activeWorkers", options: {style: {textAlign: "right", color: "green"}}, value: labourTrackerRecord.activeWorkersCount + ' <strong>(' + labourTrackerRecord.activeWorkersPercentage + ')</strong>'},
-                {headerName: "onBreakWorkers", options: {style: {textAlign: "right", color: "orange"}}, value: labourTrackerRecord.onBreakWorkersCount + ' <strong>(' + labourTrackerRecord.onBreakWorkersPercentage + ')</strong>'},
-                {headerName: "idleWorkers", options: {style: {textAlign: "right", color: "brown"}}, value: labourTrackerRecord.idleWorkersCount + ' <strong>(' + labourTrackerRecord.idleWorkersPercentage + ')</strong>'},
-                {headerName: "total", options: {style: {textAlign: "right"}}, value: labourTrackerRecord.total}
+                {headerName: "activeWorkers", value: labourTrackerRecord.activeWorkersCount + ' <strong>(' + labourTrackerRecord.activeWorkersPercentage + ')</strong>', style: "color: green; text-align: right"},
+                {headerName: "onBreakWorkers", value: labourTrackerRecord.onBreakWorkersCount + ' <strong>(' + labourTrackerRecord.onBreakWorkersPercentage + ')</strong>', style: "color: orange; text-align: right"},
+                {headerName: "idleWorkers", value: labourTrackerRecord.idleWorkersCount + ' <strong>(' + labourTrackerRecord.idleWorkersPercentage + ')</strong>', style: "color: brown; text-align: right"},
+                {headerName: "total", value: labourTrackerRecord.total, style: "text-align: right"}
             ]
         });
     }
     return {
         header: [
-            {name: "position", label: "Position", options: {style: {fontWeight: "bold"}}},
-            {name: "activeWorkers", label: "Active workers", options: {style: {fontWeight: "bold"}}},
-            {name: "onBreakWorkers", label: "On break workers", options: {style: {fontWeight: "bold"}}},
-            {name: "idleWorkers", label: "Idle workers", options: {style: {fontWeight: "bold"}}},
-            {name: "total", label: "Total", options: {style: {fontWeight: "bold"}}}
+            {name: "position", label: "Position", style: "font-weight: bold;"},
+            {name: "activeWorkers", label: "Active workers", style: "font-weight: bold;"},
+            {name: "onBreakWorkers", label: "On break workers", style: "font-weight: bold;"},
+            {name: "idleWorkers", label: "Idle workers", style: "font-weight: bold;"},
+            {name: "total", label: "Total", style: "font-weight: bold;"}
         ],
         body: rows
     };

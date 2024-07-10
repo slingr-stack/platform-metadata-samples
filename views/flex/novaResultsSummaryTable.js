@@ -5,7 +5,7 @@ function resultsSummaryTableWidgetCalculation(record, options) {
 
     // build header
     let header = [
-        {name: "partitionId", label: "Partition ID", options: {style: {fontWeight: "bold"}}}
+        {name: "partitionId", label: "Partition ID", style: "font-weight: bold"}
     ];
     partitions.forEach(function (partition) {
         header.push(
@@ -13,7 +13,7 @@ function resultsSummaryTableWidgetCalculation(record, options) {
                 name: partition.id(),
                 label: partition.label(),
                 value: `<slingr-action action="openPartition" recordId="${partition.id()}">Open partition</slingr-action>`,
-                options: {style: {fontWeight: "bold"}}
+                style: "font-weight: bold"
             }
         );
     });
@@ -28,7 +28,7 @@ function resultsSummaryTableWidgetCalculation(record, options) {
             row.push({
                 headerName: samplePartition.id,
                 value: samplePartition.raw + '<br>' + samplePartition.result,
-                options: {style: {backgroundColor: samplePartition.hasIssues() ? 'red' : 'inherit'}}
+                style: samplePartition.hasIssues() ? "background-color: red" : ""
             });
         });
         rows.push({cells: row});

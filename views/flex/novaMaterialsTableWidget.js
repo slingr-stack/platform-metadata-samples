@@ -13,10 +13,10 @@ function materialsTableWidgetCalculation(record, options) {
     });
     return {
         header: [
-            {name: "material", label: "Material", options: {style: {fontWeight: "bold"}}},
-            {name: "description", label: "Description", options: {style: {fontWeight: "bold"}}},
-            {name: "lotId", label: "Lot ID", options: {style: {fontWeight: "bold"}}},
-            {name: "expDate", label: "Exp. Date", options: {style: {fontWeight: "bold"}}}
+            {name: "material", label: "Material", style: "font-weight: bold;"},
+            {name: "description", label: "Description", style: "font-weight: bold;"},
+            {name: "lotId", label: "Lot ID", style: "font-weight: bold;"},
+            {name: "expDate", label: "Exp. Date", style: "font-weight: bold;"}
         ],
         body: rows
     };

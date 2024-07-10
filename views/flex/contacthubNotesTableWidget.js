@@ -24,8 +24,8 @@ function notesTableWidgetCalculation(record, options) {
     });
     return {
         header: [
-            {name: "user", label: "User", options: {style: {fontWeight: "bold"}}},
-            {name: "note", label: "Note", options: {style: {fontWeight: "bold"}}}
+            {name: "user", label: "User", style: "font-weight: bold;"},
+            {name: "note", label: "Note", style: "font-weight: bold;"}
         ],
         body: rows
     };
