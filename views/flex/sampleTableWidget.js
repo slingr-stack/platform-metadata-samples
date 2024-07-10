@@ -1,10 +1,10 @@
 function generateTable(options) {
     return {
         header: [
-            {name: "id", label: "ID", options: {style: {fontWeight: "bold", alignment: "center"}}},
-            {name: "name", label: "Name", options: {style: {fontWeight: "bold", alignment: "center"}}},
-            {name: "age", label: "Age", options: {style: {fontWeight: "bold", alignment: "center"}}},
-            {name: "country", label: "Country", options: {style: {fontWeight: "bold", alignment: "center"}}}
+            {name: "id", label: "ID", style: "font-weight: bold; text-align: center"},
+            {name: "name", label: "Name", style: "font-weight: bold; text-align: center"},
+            {name: "age", label: "Age", style: "font-weight: bold; text-align: center"},
+            {name: "country", label: "Country", style: "font-weight: bold; text-align: center"}
         ],
         body: [
             {
@@ -12,7 +12,7 @@ function generateTable(options) {
                 cells: [
                     {headerName: "id", value: "1"},
                     {headerName: "name", value: "Alice"},
-                    {headerName: "age", value: "30", options: {style: {alignment: "right"}}},
+                    {headerName: "age", value: "30", style: "text-align: right"},
                     {headerName: "country", value: "USA"}
                 ]
             },
@@ -21,7 +21,7 @@ function generateTable(options) {
                 cells: [
                     {headerName: "id", value: "2"},
                     {headerName: "name", value: "Bob"},
-                    {headerName: "age", value: "25", options: {style: {alignment: "right"}}},
+                    {headerName: "age", value: "25", style: "text-align: right"},
                     {headerName: "country", value: "Canada"}
                 ]
             }
