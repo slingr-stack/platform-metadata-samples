@@ -34,7 +34,7 @@ function resultsSummaryTableWidgetCalculation(record, options) {
     };
     // build rows
     let rows = [];
-    // samples header
+    // samples row
     let sampleRow = [
         {headerName: "partitionId", value: "Sample name"}
     ];
