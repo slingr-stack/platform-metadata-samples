@@ -3,8 +3,8 @@
   "label": "Orders",
   "name": "orders",
   "icon": "shopping-cart",
-  "iconStyleClass": "success",
-  "valueStyleClass": "primary",
+  "iconStyle": "success",
+  "valueStyle": "primary",
   "script": "js/ordersStatsWidgetCalculation",
-  "footNote": "%52+ since last week"
+  "footnote": "%52+ since last week"
 }

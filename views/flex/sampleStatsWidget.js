@@ -23,9 +23,9 @@ function ordersStatsWidgetCalculation(record, options) {
 
     return {
         value: totalOrders.toString(),
-        valueStyleClass: valueStyleClass,
+        valueStyle: valueStyleClass,
         icon: icon,
-        iconStyleClass: iconStyleClass,
-        footNote: footNote
+        iconStyle: iconStyleClass,
+        footnote: footNote
     };
 }
