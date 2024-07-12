@@ -20,10 +20,10 @@ function sampleSummaryTableWidgetCalculation(record, options) {
     }
     return {
         header: [
-            {name: "analysisCategory", label: "Analysis category", style: "font-weight: bold; text-align: center"},
-            {name: "status", label: "Status", style: "font-weight: bold; text-align: center"},
-            {name: "done", label: "Feb", style: "font-weight: bold; text-align: center"},
-            {name: "verified", label: "Mar", style: "font-weight: bold; text-align: center"},
+            {name: "analysisCategory", label: "Analysis category", css: "font-weight: bold; text-align: center"},
+            {name: "status", label: "Status", css: "font-weight: bold; text-align: center"},
+            {name: "done", label: "Feb", css: "font-weight: bold; text-align: center"},
+            {name: "verified", label: "Mar", css: "font-weight: bold; text-align: center"},
         ],
         body: rows
     };

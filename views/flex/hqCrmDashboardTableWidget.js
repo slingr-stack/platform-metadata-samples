@@ -8,30 +8,30 @@ function newMeetingsTableWidgetCalculation(record, options) {
     while (leadsData.hasNext()) {
         let leadRecord = leadsData.next();
         rows.push({
-            leadSource: {value: leadRecord.name, style: "text-align: center"},
-            jan: {value: leadRecord.jan, style: "text-align: center"},
-            feb: {value: leadRecord.feb, style: "text-align: center"},
-            mar: {value: leadRecord.mar, style: "text-align: center"},
-            ytd: {value: leadRecord.ytd, style: "text-align: center"},
-            ytdVsTgt: {value: leadRecord.ytdVsTgt, style: "text-align: center; color: green"}
+            leadSource: {value: leadRecord.name, css: "text-align: center"},
+            jan: {value: leadRecord.jan, css: "text-align: center"},
+            feb: {value: leadRecord.feb, css: "text-align: center"},
+            mar: {value: leadRecord.mar, css: "text-align: center"},
+            ytd: {value: leadRecord.ytd, css: "text-align: center"},
+            ytdVsTgt: {value: leadRecord.ytdVsTgt, css: "text-align: center; color: green"}
         });
     }
     rows.push({
-        leadSource: {value: "Grand total", style: "font-weight: bold; text-align: center"},
-        jan: {value: leadsTotals.jan, style: "font-weight: bold; text-align: center"},
-        feb: {value: leadsTotals.feb, style: "font-weight: bold; text-align: center"},
-        mar: {value: leadsTotals.mar, style: "font-weight: bold; text-align: center"},
-        ytd: {value: leadsTotals.ytd, style: "font-weight: bold; text-align: center"},
-        ytdVsTgt: {value: leadsTotals.ytdVsTgt, style: "color: green; font-weight: bold; text-align: center"}
+        leadSource: {value: "Grand total", css: "font-weight: bold; text-align: center"},
+        jan: {value: leadsTotals.jan, css: "font-weight: bold; text-align: center"},
+        feb: {value: leadsTotals.feb, css: "font-weight: bold; text-align: center"},
+        mar: {value: leadsTotals.mar, css: "font-weight: bold; text-align: center"},
+        ytd: {value: leadsTotals.ytd, css: "font-weight: bold; text-align: center"},
+        ytdVsTgt: {value: leadsTotals.ytdVsTgt, css: "color: green; font-weight: bold; text-align: center"}
     });
     return {
         header: [
-            {name: "leadSource", label: "Lead source", style: "font-weight: bold; text-align: center"},
-            {name: "jan", label: "Jan", style: "font-weight: bold; text-align: center"},
-            {name: "feb", label: "Feb", style: "font-weight: bold; text-align: center"},
-            {name: "mar", label: "Mar", style: "font-weight: bold; text-align: center"},
-            {name: "ytd", label: "YTD", style: "font-weight: bold; text-align: center"},
-            {name: "ytdVsTgt", label: "YTD vs TGT", style: "font-weight: bold; text-align: center"}
+            {name: "leadSource", label: "Lead source", css: "font-weight: bold; text-align: center"},
+            {name: "jan", label: "Jan", css: "font-weight: bold; text-align: center"},
+            {name: "feb", label: "Feb", css: "font-weight: bold; text-align: center"},
+            {name: "mar", label: "Mar", css: "font-weight: bold; text-align: center"},
+            {name: "ytd", label: "YTD", css: "font-weight: bold; text-align: center"},
+            {name: "ytdVsTgt", label: "YTD vs TGT", css: "font-weight: bold; text-align: center"}
         ],
         body: rows
     };

@@ -10,10 +10,10 @@ function materialsTableWidgetCalculation(record, options) {
     });
     return {
         header: [
-            {name: "material", label: "Material", style: "font-weight: bold;"},
-            {name: "description", label: "Description", style: "font-weight: bold;"},
-            {name: "lotId", label: "Lot ID", style: "font-weight: bold;"},
-            {name: "expDate", label: "Exp. Date", style: "font-weight: bold;"}
+            {name: "material", label: "Material", css: "font-weight: bold;"},
+            {name: "description", label: "Description", css: "font-weight: bold;"},
+            {name: "lotId", label: "Lot ID", css: "font-weight: bold;"},
+            {name: "expDate", label: "Exp. Date", css: "font-weight: bold;"}
         ],
         body: rows
     };
