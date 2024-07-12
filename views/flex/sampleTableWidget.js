@@ -17,7 +17,7 @@ function generateTable(options) {
                 id: "2",
                 name: "Bob",
                 age: {value: 40, css: "text-align: right"},
-                country: "Canda"
+                country: "Canada"
             }
         ]
     };
