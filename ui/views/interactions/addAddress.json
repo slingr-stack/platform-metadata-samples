@@ -2,7 +2,7 @@
   "label": "Add Address",
   "name": "addAddress",
   "style": "primary",
-  "icon": "address-icon",
+  "icon": "plus",
   "script": "js/addAddressScript",
   "parameters": [
     {
@@ -14,8 +14,7 @@
     {
       "name": "addressLine2",
       "label": "Address Line 2",
-      "type": "text",
-      "required": false
+      "type": "text"
     },
     {
       "name": "city",
@@ -28,22 +27,8 @@
       "name": "state",
       "label": "State",
       "type": "relationship",
-      "relationshipEntity": "states",
+      "entity": "states",
       "required": true
     }
-  ],
-  "permissions": [
-    {
-      "role": "admin",
-      "allowed": true
-    },
-    {
-      "role": "user",
-      "allowed": true
-    }
-  ],
-  "events": {
-    "beforeShow": "function(record, interaction) { /* Logic before showing Add Address */ }",
-    "onInteractionChange": "function(record, interaction, param) { /* Handle parameter change in Add Address */ }",
-    "onInteractionExecuted": "function(record, interaction) { /* Logic after Add Address is executed */ }"
-  }
+  ]
+}
