@@ -1,0 +1,9 @@
+{
+  "name": "sysUsersUnblock",
+  "label": "Unblock",
+  "entity": "sys.users",
+  "action": "unblock",
+  "settings": {
+    "system": true
+  }
+}

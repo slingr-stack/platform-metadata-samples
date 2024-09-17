@@ -1,0 +1,6 @@
+{
+  "name": "defaultDynamicChoiceDisplayOptions",
+  "label": "Default dynamic choice display options",
+  "type": "dynamicChoice",
+  "defaultSettings": true
+}

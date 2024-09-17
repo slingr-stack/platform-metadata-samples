@@ -1,0 +1,6 @@
+{
+  "name": "companyRead",
+  "label": "Company detail",
+  "entity": "companies",
+  "type": "readOnly"
+}

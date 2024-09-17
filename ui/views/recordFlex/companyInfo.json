@@ -1,0 +1,111 @@
+{
+  "name": "companyInfo",
+  "label": "Company info",
+  "entity": "companies",
+  "type": "readOnly",
+  "settings": {
+    "fieldLayout": "horizontal"
+  },
+  "layout": [
+    {
+      "columns": [
+        {
+          "width": 6,
+          "widgets": [
+            {
+              "type": "entityField",
+              "field": "name"
+            }
+          ]
+        },
+        {
+          "width": 6,
+          "widgets": [
+            {
+              "type": "entityField",
+              "field": "status"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "columns": [
+        {
+          "width": 6,
+          "widgets": [
+            {
+              "type": "entityField",
+              "field": "email"
+            }
+          ]
+        },
+        {
+          "width": 6,
+          "widgets": [
+            {
+              "type": "entityField",
+              "field": "website"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "columns": [
+        {
+          "width": 12,
+          "widgets": [
+            {
+              "type": "header",
+              "name": "contacts",
+              "label": "Contacts",
+              "style": "lineDivider"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "columns": [
+        {
+          "width": 12,
+          "widgets": [
+            {
+              "type": "dataTable",
+              "name": "contacts",
+              "label": "Contacts",
+              "columns": [
+                {
+                  "field": "fullName",
+                  "options": {
+                    "sortable": true
+                  }
+                },
+                {
+                  "field": "email"
+                },
+                {
+                  "field": "phoneNumbers"
+                }
+              ],
+              "pagination": {
+                "type": "perPage",
+                "itemsPerPage": 10
+              },
+              "header": {
+                "sticky": true
+              },
+              "dataSet": {
+                "entity": "contacts",
+                "filters": {
+                    "company": "$currentRecord"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

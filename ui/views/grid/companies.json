@@ -1,0 +1,38 @@
+{
+  "name": "companies",
+  "label": "Companies",
+  "entity": "companies",
+  "columns": [
+    {
+      "field": "name"
+    },
+    {
+      "field": "status"
+    },
+    {
+      "type": "integer",
+      "name": "view_contacts",
+      "label": "contacts",
+      "calculation": "js/contactsCalculation"
+    }
+  ],
+  "crudActions": [
+    {
+      "create": {
+        "enabled": true,
+        "view": "views/companyCreate"
+      },
+      "read": {
+        "enabled": true,
+        "view": "views/companyRead"
+      },
+      "edit": {
+        "enabled": true,
+        "view": "views/companiesUpdate"
+      },
+      "delete": {
+        "enabled": true
+      }
+    }
+  ]
+}

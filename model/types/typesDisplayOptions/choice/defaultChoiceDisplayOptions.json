@@ -1,0 +1,6 @@
+{
+  "name": "defaultChoiceDisplayOptions",
+  "label": "Default choice display options",
+  "type": "choice",
+  "defaultSettings": true
+}

@@ -1,0 +1,6 @@
+{
+  "name": "defaultDateTimeDisplayOptions",
+  "label": "Default date time display options",
+  "type": "dateTime",
+  "defaultSettings": true
+}

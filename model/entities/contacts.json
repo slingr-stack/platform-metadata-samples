@@ -1,0 +1,120 @@
+{
+  "name": "contacts",
+  "label": "Contacts",
+  "fullName": "contacts",
+  "fields": [
+    {
+      "name": "company",
+      "label": "Company",
+      "type": "relationship",
+      "required": "always",
+      "typeRules": {
+        "entity": "companies",
+        "filteringRules": {
+          "filters": {
+            "status": "active"
+          }
+        }
+      }
+    },
+    {
+      "name": "firstName",
+      "label": "First name",
+      "type": "text",
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "lastName",
+      "label": "Last name",
+      "type": "text",
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "fullName",
+      "label": "Full name",
+      "type": "text",
+      "valueCalculation": "js/fullNameValueCalculation"
+    },
+    {
+      "name": "email",
+      "label": "Email",
+      "type": "text",
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "phoneNumbers",
+      "label": "Phone numbers",
+      "type": "phone",
+      "multiplicity": "many",
+      "syncAccess": false,
+      "typeRules": {
+        "international": false
+      }
+    },
+    {
+      "name": "notes",
+      "label": "Notes",
+      "type": "nestedFields",
+      "multiplicity": "many",
+      "nestedFields": [
+        {
+          "name": "date",
+          "label": "Date",
+          "type": "dateTime",
+          "defaultValue": "$currentDate",
+          "required": "always",
+          "uiOptions": {
+            "format": "dd-MM-yyyy HH:mm",
+            "pickerFormat": "dd-MM-yyyy HH:mm"
+          }
+        },
+        {
+          "name": "user",
+          "label": "User",
+          "type": "relationship",
+          "defaultValue": "js/notesUserDefaultValue",
+          "typeRules": {
+            "entity": "sys.users"
+          },
+          "uiOptions": {
+            "readOnly": "always"
+          }
+        },
+        {
+          "name": "note",
+          "label": "Note",
+          "type": "text",
+          "required": "always",
+          "uiOptions": {
+            "representation": "textArea",
+            "numberOfRows": 4
+          }
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "addNote",
+      "label": "Add note",
+      "parameters": [
+        {
+          "name": "note",
+          "label": "Note",
+          "type": "text",
+          "transient": true,
+          "required": "always",
+          "uiOptions": {
+            "representation": "textArea",
+            "numberOfRows": 4
+          }
+        }
+      ],
+      "actions": "js/addNoteActions"
+    }
+  ],
+  "recordLabel": "js/contactsRecordLabel"
+}

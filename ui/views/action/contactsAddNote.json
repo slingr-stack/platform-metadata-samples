@@ -1,0 +1,6 @@
+{
+  "name": "contactsAddNote",
+  "label": "Add note",
+  "entity": "contacts",
+  "action": "addNote"
+}

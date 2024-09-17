@@ -1,0 +1,6 @@
+{
+  "name": "companiesActivate",
+  "label": "Activate",
+  "entity": "companies",
+  "action": "activate"
+}

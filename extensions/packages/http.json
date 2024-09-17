@@ -1,0 +1,37 @@
+{
+  "name": "http",
+  "label": "Http",
+  "version": "v2.0.16",
+  "upgradePolicy": "compatibleVersion",
+  "icon": "https://storage.googleapis.com/slingr-prod-platform/platform/packages/http.png",
+  "config": {
+    "allowExternalUrl": "disable",
+    "clientId": null,
+    "webhook": "https://contacthub.slingrs.io/dev/services/http/http",
+    "emptyPath": null,
+    "oauthCallback": "https://contacthub.slingrs.io/dev/packages/http/authCallback",
+    "webhookSync": "https://contacthub.slingrs.io/dev/services/http/sync/http",
+    "rememberCookies": "disable",
+    "authUrl": null,
+    "baseUrl": null,
+    "password": null,
+    "followRedirects": "enable",
+    "accessTokenUrl": null,
+    "scope": null,
+    "readTimeout": "60000",
+    "clientSecret": null,
+    "id": null,
+    "state": null,
+    "authType": "no",
+    "connectionTimeout": "5000",
+    "defaultHeaders": null,
+    "username": null
+  },
+  "dynamicConfig": "js/dynamicConfig",
+  "dependencies": [
+    {
+      "serviceType": "http",
+      "serviceInstance": "http"
+    }
+  ]
+}

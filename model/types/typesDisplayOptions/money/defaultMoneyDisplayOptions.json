@@ -1,0 +1,11 @@
+{
+  "name": "defaultMoneyDisplayOptions",
+  "label": "Default money display options",
+  "type": "money",
+  "defaultSettings": true,
+  "rules": {
+    "symbol": "$",
+    "numberOfDecimals": 2,
+    "decimalLimitRuleType": "round"
+  }
+}

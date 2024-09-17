@@ -1,0 +1,6 @@
+{
+  "name": "defaultDateMonthDayDisplayOptions",
+  "label": "Default date month day display options",
+  "type": "dateMonthDay",
+  "defaultSettings": true
+}

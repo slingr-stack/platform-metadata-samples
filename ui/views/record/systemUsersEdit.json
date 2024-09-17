@@ -1,0 +1,10 @@
+{
+  "name": "systemUsersEdit",
+  "label": "Users Edit",
+  "entity": "sys.users",
+  "type": "edit",
+  "belongsToCollectionView": true,
+  "settings": {
+    "system": true
+  }
+}

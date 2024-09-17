@@ -1,0 +1,6 @@
+{
+  "name": "defaultTextDisplayOptions",
+  "label": "Default text display options",
+  "type": "text",
+  "defaultSettings": true
+}

@@ -1,0 +1,10 @@
+{
+  "name": "systemUsersReadOnly",
+  "label": "Users Read Only",
+  "entity": "sys.users",
+  "type": "readOnly",
+  "belongsToCollectionView": true,
+  "settings": {
+    "system": true
+  }
+}

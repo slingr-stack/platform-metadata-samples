@@ -1,0 +1,6 @@
+{
+  "name": "defaultQrDisplayOptions",
+  "label": "Default qr display options",
+  "type": "qr",
+  "defaultSettings": true
+}

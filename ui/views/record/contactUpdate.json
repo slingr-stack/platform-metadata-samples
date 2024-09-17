@@ -1,0 +1,6 @@
+{
+  "name": "contactUpdate",
+  "label": "Update contact",
+  "entity": "contacts",
+  "type": "edit"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "defaultGeoPointDisplayOptions",
+  "label": "Default geo point display options",
+  "type": "geoPoint",
+  "defaultSettings": true
+}

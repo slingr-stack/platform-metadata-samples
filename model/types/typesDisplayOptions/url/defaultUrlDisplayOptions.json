@@ -1,0 +1,6 @@
+{
+  "name": "defaultUrlDisplayOptions",
+  "label": "Default url display options",
+  "type": "url",
+  "defaultSettings": true
+}

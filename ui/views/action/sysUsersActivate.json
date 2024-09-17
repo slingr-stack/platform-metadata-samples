@@ -1,0 +1,9 @@
+{
+  "name": "sysUsersActivate",
+  "label": "Activate",
+  "entity": "sys.users",
+  "action": "activate",
+  "settings": {
+    "system": true
+  }
+}

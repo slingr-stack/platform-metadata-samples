@@ -1,0 +1,6 @@
+{
+  "name": "defaultLongTextDisplayOptions",
+  "label": "Default long text display options",
+  "type": "longText",
+  "defaultSettings": true
+}

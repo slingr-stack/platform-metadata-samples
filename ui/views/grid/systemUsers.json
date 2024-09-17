@@ -1,0 +1,74 @@
+{
+  "name": "systemUsers",
+  "label": "Users",
+  "entity": "sys.users",
+  "settings": {
+    "sortField": "fullName",
+    "sortDirection": "ascendant",
+    "displayActionsColumn": true
+  },
+  "columns": [
+    {
+      "field": "fullName"
+    },
+    {
+      "field": "email"
+    },
+    {
+      "field": "status"
+    },
+    {
+      "field": "groups.group",
+      "options": {
+        "overrideLabel": "Groups"
+      }
+    },
+    {
+      "field": "identityProviders.name",
+      "options": {
+        "overrideLabel": "Identity providers"
+      }
+    },
+    {
+      "options": {
+        "format": "MMM dd, yyyy h:mm a",
+        "pickerFormat": "MMM dd, yyyy h:mm a"
+      },
+      "type": "dateTime",
+      "name": "view_lastLogin",
+      "label": "Last login",
+      "calculation": "js/lastLoginCalculation"
+    },
+    {
+      "type": "text",
+      "name": "view_fromIp",
+      "label": "From IP",
+      "calculation": "js/fromIpCalculation"
+    },
+    {
+      "type": "choice",
+      "name": "view_connectionStatus",
+      "label": "Connection",
+      "calculation": "js/connectionStatusCalculation"
+    }
+  ],
+  "crudActions": [
+    {
+      "create": {
+        "enabled": true,
+        "view": "views/systemUsersAdd"
+      },
+      "read": {
+        "enabled": true,
+        "view": "views/systemUsersReadOnly"
+      },
+      "edit": {
+        "enabled": true,
+        "view": "views/systemUsersEdit"
+      },
+      "delete": {
+        "enabled": true
+      }
+    }
+  ]
+}

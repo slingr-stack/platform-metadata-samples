@@ -1,0 +1,6 @@
+{
+  "name": "contactCreate",
+  "label": "Create contact",
+  "entity": "contacts",
+  "type": "add"
+}

@@ -1,0 +1,20 @@
+{
+  "label": "HTTP",
+  "name": "http",
+  "serviceType": "http",
+  "instanceType": "shared",
+  "svcConfigurationType": "global",
+  "desiredStatus": "deployed",
+  "upgradePolicy": "compatibleVersion",
+  "version": "v1.6.3",
+  "config": {
+    "rememberCookies": "disable",
+    "allowExternalUrl": null,
+    "followRedirects": "enable",
+    "readTimeout": "60000",
+    "connectionTimeout": "5000"
+  },
+  "forceUsersConfiguration": true,
+  "profile": "default",
+  "hideLogsContent": false
+}

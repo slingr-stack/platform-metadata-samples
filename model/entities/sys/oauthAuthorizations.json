@@ -1,0 +1,93 @@
+{
+  "name": "oauthAuthorizations",
+  "label": "OAuth authorizations",
+  "type": "system",
+  "fullName": "sys.oauthAuthorizations",
+  "system": true,
+  "settings": {
+    "auditLogs": {
+      "userContext": {
+        "recordCreated": true,
+        "recordChanged": true,
+        "recordDeleted": true,
+        "actionExecuted": true
+      },
+      "scriptContext": {
+        "recordChanged": true,
+        "actionExecuted": true,
+        "recordDeleted": true
+      },
+      "dataExpiration": {
+        "customDeletion": 2,
+        "customDeletionPolicyType": "months"
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "date",
+      "label": "Date",
+      "type": "dateTime",
+      "system": true,
+      "syncAccess": false,
+      "defaultValue": "$currentDate",
+      "required": "always"
+    },
+    {
+      "name": "application",
+      "label": "Application",
+      "type": "relationship",
+      "system": true,
+      "syncAccess": false,
+      "required": "always",
+      "typeRules": {
+        "entity": "sys.oauthApps"
+      }
+    },
+    {
+      "name": "user",
+      "label": "User",
+      "type": "relationship",
+      "system": true,
+      "syncAccess": false,
+      "required": "always",
+      "typeRules": {
+        "entity": "sys.users"
+      }
+    },
+    {
+      "name": "authorizationCode",
+      "label": "Authorization Code",
+      "type": "text",
+      "system": true,
+      "sensitiveData": true,
+      "syncAccess": false,
+      "uiOptions": {
+        "visible": "never"
+      }
+    },
+    {
+      "name": "accessToken",
+      "label": "Access Token",
+      "type": "text",
+      "system": true,
+      "sensitiveData": true,
+      "syncAccess": false,
+      "uiOptions": {
+        "visible": "never"
+      }
+    },
+    {
+      "name": "refreshToken",
+      "label": "Refresh Token",
+      "type": "text",
+      "system": true,
+      "sensitiveData": true,
+      "syncAccess": false,
+      "uiOptions": {
+        "visible": "never"
+      }
+    }
+  ],
+  "recordLabel": "js/oauthAuthorizationsRecordLabel"
+}

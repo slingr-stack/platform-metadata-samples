@@ -1,0 +1,17 @@
+{
+  "name": "systemOauthAuthorizations",
+  "label": "OAuth authorizations",
+  "entity": "sys.oauthAuthorizations",
+  "settings": {
+    "displayActionsColumn": true
+  },
+  "columns": [
+    {
+      "field": "date"
+    },
+    {
+      "field": "user"
+    }
+  ],
+  "crudActions": []
+}

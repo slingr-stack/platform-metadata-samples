@@ -1,0 +1,6 @@
+{
+  "name": "defaultIntegerDisplayOptions",
+  "label": "Default integer display options",
+  "type": "integer",
+  "defaultSettings": true
+}

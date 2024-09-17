@@ -1,0 +1,6 @@
+{
+  "name": "defaultBooleanDisplayOptions",
+  "label": "Default boolean display options",
+  "type": "boolean",
+  "defaultSettings": true
+}

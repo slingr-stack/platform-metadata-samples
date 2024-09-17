@@ -1,0 +1,21 @@
+{
+  "label": "On user created",
+  "name": "onUserCreated",
+  "type": "data",
+  "entity": "sys.users",
+  "events": [
+    {
+      "type": "recordCreated",
+      "condition": "none",
+      "events": [
+        "userEvents",
+        "scriptEvents"
+      ]
+    }
+  ],
+  "executeInBackground": false,
+  "action": "js/actionScript",
+  "dynamic": false,
+  "avoidTriggerUiEvents": false,
+  "forUpdateCalculatedRecords": false
+}

@@ -1,0 +1,98 @@
+{
+  "name": "companies",
+  "label": "Companies",
+  "fields": [
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "text",
+      "unique": true,
+      "indexable": true,
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "text",
+      "syncAccess": false,
+      "uiOptions": {
+        "representation": "textArea",
+        "numberOfRows": 4
+      }
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "choice",
+      "defaultValue": "active",
+      "required": "always",
+      "typeRules": {
+        "possibleValues": [
+          {
+            "name": "active",
+            "label": "Active",
+            "color": "success"
+          },
+          {
+            "name": "inactive",
+            "label": "Inactive",
+            "color": "grey"
+          }
+        ]
+      },
+      "uiOptions": {
+        "readOnly": "always"
+      }
+    },
+    {
+      "name": "email",
+      "label": "Email",
+      "type": "email"
+    },
+    {
+      "name": "website",
+      "label": "Website",
+      "type": "url"
+    },
+    {
+      "name": "address",
+      "label": "Address",
+      "type": "nestedFields",
+      "syncAccess": false,
+      "nestedFields": [
+        {
+          "name": "street",
+          "label": "Street",
+          "type": "text",
+          "syncAccess": false
+        },
+        {
+          "name": "zipCode",
+          "label": "Zip code",
+          "type": "integer",
+          "syncAccess": false
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "activate",
+      "label": "Activate",
+      "precondition": {
+        "status": "inactive"
+      },
+      "actions": "js/activateActions"
+    },
+    {
+      "name": "deactivate",
+      "label": "Deactivate",
+      "precondition": {
+        "status": "active"
+      },
+      "actions": "js/deactivateActions"
+    }
+  ],
+  "recordLabel": "fields/name"
+}

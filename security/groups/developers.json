@@ -1,0 +1,225 @@
+{
+  "name": "developers",
+  "label": "Developers",
+  "entityPermissions": [
+    {
+      "entity": "companies",
+      "read": "never",
+      "create": "never",
+      "update": "never",
+      "delete": "never",
+      "auditLogs": "never",
+      "import": false,
+      "export": false,
+      "fields": [
+        {
+          "field": "name",
+          "permission": "none"
+        },
+        {
+          "field": "description",
+          "permission": "none"
+        },
+        {
+          "field": "address",
+          "permission": "none"
+        },
+        {
+          "field": "address.street",
+          "permission": "parent"
+        },
+        {
+          "field": "address.zipCode",
+          "permission": "parent"
+        }
+      ],
+      "actions": [
+        {
+          "action": "activate",
+          "permission": {
+            "value": "never"
+          }
+        },
+        {
+          "action": "deactivate",
+          "permission": {
+            "value": "never"
+          }
+        }
+      ]
+    },
+    {
+      "entity": "contacts",
+      "read": "never",
+      "create": "never",
+      "update": "never",
+      "delete": "never",
+      "auditLogs": "never",
+      "import": false,
+      "export": false,
+      "fields": [
+        {
+          "field": "firstName",
+          "permission": "none"
+        },
+        {
+          "field": "lastName",
+          "permission": "none"
+        },
+        {
+          "field": "email",
+          "permission": "none"
+        },
+        {
+          "field": "phoneNumbers",
+          "permission": "none"
+        }
+      ],
+      "actions": [
+        {
+          "action": "addNote",
+          "permission": {
+            "value": "never"
+          },
+          "parameters": [
+            {
+              "parameter": "note",
+              "permission": "readWrite"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "sys.oauthApps",
+      "read": "never",
+      "create": "never",
+      "update": "never",
+      "delete": "never",
+      "auditLogs": "never",
+      "import": false,
+      "export": false,
+      "fields": [
+        {
+          "field": "appLabel",
+          "permission": "none"
+        },
+        {
+          "field": "name",
+          "permission": "none"
+        },
+        {
+          "field": "icon",
+          "permission": "none"
+        },
+        {
+          "field": "website",
+          "permission": "none"
+        },
+        {
+          "field": "description",
+          "permission": "none"
+        },
+        {
+          "field": "authorizationCallbackUrl",
+          "permission": "none"
+        },
+        {
+          "field": "clientId",
+          "permission": "none"
+        },
+        {
+          "field": "scopes",
+          "permission": "none"
+        },
+        {
+          "field": "created",
+          "permission": "none"
+        }
+      ],
+      "actions": []
+    },
+    {
+      "entity": "sys.oauthAuthorizations",
+      "read": "never",
+      "create": "never",
+      "update": "never",
+      "delete": "never",
+      "auditLogs": "never",
+      "import": false,
+      "export": false,
+      "fields": [
+        {
+          "field": "date",
+          "permission": "none"
+        },
+        {
+          "field": "application",
+          "permission": "none"
+        },
+        {
+          "field": "user",
+          "permission": "none"
+        },
+        {
+          "field": "authorizationCode",
+          "permission": "none"
+        },
+        {
+          "field": "accessToken",
+          "permission": "none"
+        },
+        {
+          "field": "refreshToken",
+          "permission": "none"
+        }
+      ],
+      "actions": []
+    }
+  ],
+  "viewPermissions": [
+    {
+      "view": "companiesActivate"
+    },
+    {
+      "view": "companiesDeactivate"
+    },
+    {
+      "view": "companyCreate"
+    },
+    {
+      "view": "companyRead"
+    },
+    {
+      "view": "companiesUpdate"
+    },
+    {
+      "view": "companies"
+    },
+    {
+      "view": "contactCreate"
+    },
+    {
+      "view": "contactRead"
+    },
+    {
+      "view": "contactUpdate"
+    },
+    {
+      "view": "contacts"
+    },
+    {
+      "view": "contactsAddNote"
+    },
+    {
+      "view": "systemOauthApps"
+    },
+    {
+      "view": "systemOauthAuthorizations"
+    },
+    {
+      "view": "contactInfo"
+    }
+  ],
+  "userImpersonate": true
+}

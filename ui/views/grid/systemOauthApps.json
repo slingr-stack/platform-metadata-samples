@@ -1,0 +1,22 @@
+{
+  "name": "systemOauthApps",
+  "label": "OAuth apps",
+  "entity": "sys.oauthApps",
+  "settings": {
+    "sortField": "name",
+    "sortDirection": "ascendant",
+    "displayActionsColumn": true
+  },
+  "columns": [
+    {
+      "field": "appLabel"
+    },
+    {
+      "field": "name"
+    },
+    {
+      "field": "website"
+    }
+  ],
+  "crudActions": []
+}

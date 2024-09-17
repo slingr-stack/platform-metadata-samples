@@ -1,0 +1,22 @@
+{
+  "label": "On authorization deleted",
+  "name": "onAuthorizationDeleted",
+  "type": "data",
+  "entity": "sys.oauthAuthorizations",
+  "events": [
+    {
+      "type": "recordDeleted",
+      "condition": "none",
+      "events": [
+        "userEvents",
+        "scriptEvents",
+        "systemEvents"
+      ]
+    }
+  ],
+  "executeInBackground": true,
+  "action": "js/actionScript",
+  "dynamic": false,
+  "avoidTriggerUiEvents": false,
+  "forUpdateCalculatedRecords": false
+}

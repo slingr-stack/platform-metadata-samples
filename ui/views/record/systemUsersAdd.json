@@ -1,0 +1,153 @@
+{
+  "name": "systemUsersAdd",
+  "label": "Users Add",
+  "entity": "sys.users",
+  "type": "add",
+  "belongsToCollectionView": true,
+  "settings": {
+    "system": true
+  },
+  "fields": [
+    {
+      "field": "firstName"
+    },
+    {
+      "field": "lastName"
+    },
+    {
+      "field": "fullName"
+    },
+    {
+      "field": "email"
+    },
+    {
+      "field": "emailStandardized"
+    },
+    {
+      "field": "status"
+    },
+    {
+      "field": "sendWelcomeEmail"
+    },
+    {
+      "field": "authentication",
+      "options": {
+        "nestedFields": [
+          {
+            "field": "generatePassword"
+          },
+          {
+            "field": "newPassword"
+          },
+          {
+            "field": "passwordConfirmation"
+          },
+          {
+            "field": "password"
+          },
+          {
+            "field": "passwordExpired"
+          },
+          {
+            "field": "lastPasswordChange"
+          },
+          {
+            "field": "resetPasswordCode"
+          },
+          {
+            "field": "enableTwoFactorAuthentication"
+          },
+          {
+            "field": "phoneNumber"
+          },
+          {
+            "field": "twoFactorAuthenticationKey"
+          },
+          {
+            "field": "failedLoginAttempts"
+          }
+        ]
+      }
+    },
+    {
+      "field": "groups",
+      "options": {
+        "nestedFields": [
+          {
+            "field": "primary"
+          },
+          {
+            "field": "external"
+          },
+          {
+            "field": "group"
+          }
+        ]
+      }
+    },
+    {
+      "field": "permissions",
+      "options": {
+        "nestedFields": [
+          {
+            "field": "superUser"
+          },
+          {
+            "field": "systemUser"
+          },
+          {
+            "field": "developer"
+          }
+        ]
+      }
+    },
+    {
+      "field": "localization",
+      "options": {
+        "nestedFields": [
+          {
+            "field": "timezoneMode"
+          },
+          {
+            "field": "timezone"
+          },
+          {
+            "field": "language"
+          }
+        ]
+      }
+    },
+    {
+      "field": "identityProviders",
+      "options": {
+        "nestedFields": [
+          {
+            "field": "name"
+          },
+          {
+            "field": "externalId"
+          }
+        ]
+      }
+    },
+    {
+      "field": "integrations",
+      "options": {
+        "nestedFields": [
+          {
+            "field": "endpoint"
+          },
+          {
+            "field": "status"
+          },
+          {
+            "field": "configurationSet"
+          },
+          {
+            "field": "configuration"
+          }
+        ]
+      }
+    }
+  ]
+}

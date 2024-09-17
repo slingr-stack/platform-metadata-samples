@@ -1,0 +1,115 @@
+{
+  "name": "oauthApps",
+  "label": "OAuth apps",
+  "type": "system",
+  "fullName": "sys.oauthApps",
+  "system": true,
+  "settings": {
+    "auditLogs": {
+      "userContext": {
+        "recordCreated": true,
+        "recordChanged": true,
+        "recordDeleted": true,
+        "actionExecuted": true
+      },
+      "scriptContext": {
+        "recordChanged": true,
+        "actionExecuted": true,
+        "recordDeleted": true
+      },
+      "dataExpiration": {
+        "customDeletion": 2,
+        "customDeletionPolicyType": "months"
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "appLabel",
+      "label": "Label",
+      "type": "text",
+      "system": true,
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "text",
+      "system": true,
+      "unique": true,
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "icon",
+      "label": "Icon",
+      "type": "fileUpload",
+      "system": true,
+      "syncAccess": false,
+      "uiOptions": {
+        "tooltip": "The icon will be used in the authorization page. The required size is: 64x64px."
+      }
+    },
+    {
+      "name": "website",
+      "label": "Website",
+      "type": "url",
+      "system": true,
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "text",
+      "system": true,
+      "syncAccess": false,
+      "uiOptions": {
+        "representation": "textArea",
+        "numberOfRows": 4
+      }
+    },
+    {
+      "name": "authorizationCallbackUrl",
+      "label": "Authorization Callback Url",
+      "type": "url",
+      "system": true,
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "clientId",
+      "label": "Client Id",
+      "type": "text",
+      "system": true,
+      "sensitiveData": true,
+      "syncAccess": false,
+      "defaultValue": "js/clientIdDefaultValue",
+      "uiOptions": {
+        "readOnly": "always"
+      }
+    },
+    {
+      "name": "scopes",
+      "label": "Scopes",
+      "type": "dynamicChoice",
+      "multiplicity": "many",
+      "system": true,
+      "syncAccess": false,
+      "defaultValue": "js/scopesDefaultValue",
+      "required": "always",
+      "uiOptions": {
+        "representation": "boxes"
+      }
+    },
+    {
+      "name": "created",
+      "label": "Created",
+      "type": "dateRecordCreated",
+      "system": true,
+      "syncAccess": false
+    }
+  ],
+  "recordLabel": "fields/appLabel"
+}

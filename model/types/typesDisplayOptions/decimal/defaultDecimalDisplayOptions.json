@@ -1,0 +1,6 @@
+{
+  "name": "defaultDecimalDisplayOptions",
+  "label": "Default decimal display options",
+  "type": "decimal",
+  "defaultSettings": true
+}

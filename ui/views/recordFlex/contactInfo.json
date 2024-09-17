@@ -1,0 +1,120 @@
+{
+  "name": "contactInfo",
+  "label": "Contact info",
+  "entity": "contacts",
+  "type": "readOnly",
+  "settings": {
+    "fieldLayout": "horizontal"
+  },
+  "layout": [
+    {
+      "columns": [
+        {
+          "width": 4,
+          "widgets": [
+            {
+              "type": "entityField",
+              "field": "firstName"
+            }
+          ]
+        },
+        {
+          "width": 4,
+          "widgets": [
+            {
+              "type": "entityField",
+              "field": "lastName"
+            }
+          ]
+        },
+        {
+          "width": 4,
+          "widgets": [
+            {
+              "type": "dynamicTable",
+              "name": "personalInfo",
+              "label": "Personal info",
+              "script": "js/personalInfoTableWidgetCalculation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "columns": [
+        {
+          "width": 4,
+          "widgets": [
+            {
+              "type": "entityField",
+              "field": "company"
+            }
+          ]
+        },
+        {
+          "width": 4,
+          "widgets": [
+            {
+              "type": "entityField",
+              "field": "email"
+            }
+          ]
+        },
+        {
+          "width": 4,
+          "widgets": [
+            {
+              "type": "entityField",
+              "field": "phoneNumbers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "columns": [
+        {
+          "width": 12,
+          "widgets": [
+            {
+              "type": "header",
+              "name": "notes",
+              "label": "Notes",
+              "style": "lineDivider",
+              "mainMenu": {
+                "name": "headerCustomMenu",
+                "type": "group",
+                "entries": [
+                  {
+                    "type": "entityAction",
+                    "action": "addNote"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "columns": [
+        {
+          "width": 12,
+          "widgets": [
+            {
+              "type": "dynamicTable",
+              "name": "notes",
+              "label": "Notes",
+              "enableFilters": true,
+              "pagination": {
+                "type": "infiniteScrolling",
+                "batchSize": 5
+              },
+              "script": "js/notesTableWidgetCalculation"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

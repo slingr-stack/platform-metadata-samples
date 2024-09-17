@@ -1,0 +1,6 @@
+{
+  "name": "defaultDurationDisplayOptions",
+  "label": "Default duration display options",
+  "type": "duration",
+  "defaultSettings": true
+}

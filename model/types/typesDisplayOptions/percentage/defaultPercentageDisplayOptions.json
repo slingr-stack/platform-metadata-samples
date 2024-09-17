@@ -1,0 +1,10 @@
+{
+  "name": "defaultPercentageDisplayOptions",
+  "label": "Default percentage display options",
+  "type": "percentage",
+  "defaultSettings": true,
+  "rules": {
+    "showThousandsSeparator": true,
+    "zeroPadding": true
+  }
+}

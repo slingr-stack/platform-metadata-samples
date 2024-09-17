@@ -1,0 +1,6 @@
+{
+  "name": "companyCreate",
+  "label": "Create company",
+  "entity": "companies",
+  "type": "add"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "defaultBigNumberDisplayOptions",
+  "label": "Default big number display options",
+  "type": "bigNumber",
+  "defaultSettings": true
+}

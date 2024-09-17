@@ -1,0 +1,6 @@
+{
+  "name": "contactRead",
+  "label": "Contact detail",
+  "entity": "contacts",
+  "type": "readOnly"
+}

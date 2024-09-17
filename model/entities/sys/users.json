@@ -1,0 +1,563 @@
+{
+  "name": "users",
+  "label": "Users",
+  "type": "system",
+  "fullName": "sys.users",
+  "system": true,
+  "enableDetailedLogging": true,
+  "settings": {
+    "auditLogs": {
+      "userContext": {
+        "recordCreated": true,
+        "recordChanged": true,
+        "recordDeleted": true,
+        "actionExecuted": true
+      },
+      "scriptContext": {
+        "recordChanged": true,
+        "actionExecuted": true,
+        "recordDeleted": true
+      },
+      "dataExpiration": {
+        "customDeletion": 2,
+        "customDeletionPolicyType": "months"
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "firstName",
+      "label": "First Name",
+      "type": "text",
+      "system": true,
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "lastName",
+      "label": "Last Name",
+      "type": "text",
+      "system": true,
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "fullName",
+      "label": "Full Name",
+      "type": "text",
+      "system": true,
+      "indexable": true,
+      "syncAccess": false,
+      "required": "always",
+      "valueCalculation": "js/fullNameValueCalculation"
+    },
+    {
+      "name": "email",
+      "label": "Email",
+      "type": "email",
+      "system": true,
+      "unique": true,
+      "indexable": true,
+      "syncAccess": false,
+      "required": "always"
+    },
+    {
+      "name": "emailStandardized",
+      "label": "Email Standardized",
+      "type": "email",
+      "system": true,
+      "syncAccess": false,
+      "uiOptions": {
+        "visible": "never"
+      },
+      "valueCalculation": "js/emailStandardizedValueCalculation"
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "choice",
+      "system": true,
+      "syncAccess": false,
+      "defaultValue": "ACTIVE",
+      "required": "always",
+      "typeRules": {
+        "possibleValues": [
+          {
+            "name": "ACTIVE",
+            "label": "ACTIVE",
+            "color": "success"
+          },
+          {
+            "name": "BLOCKED",
+            "label": "BLOCKED",
+            "color": "danger"
+          },
+          {
+            "name": "INACTIVE",
+            "label": "INACTIVE",
+            "color": "warning"
+          }
+        ]
+      },
+      "uiOptions": {
+        "readOnly": "always",
+        "representation": "switcher"
+      }
+    },
+    {
+      "name": "created",
+      "label": "Created",
+      "type": "dateRecordCreated",
+      "system": true,
+      "syncAccess": false
+    },
+    {
+      "name": "sendWelcomeEmail",
+      "label": "Send Welcome Email",
+      "type": "boolean",
+      "system": true,
+      "transient": true,
+      "syncAccess": false,
+      "uiOptions": {
+        "visible": "js/sendWelcomeEmailVisible"
+      }
+    },
+    {
+      "name": "authentication",
+      "label": "Authentication",
+      "type": "nestedFields",
+      "system": true,
+      "syncAccess": false,
+      "required": "always",
+      "nestedFields": [
+        {
+          "name": "generatePassword",
+          "label": "Generate Password",
+          "type": "boolean",
+          "system": true,
+          "transient": true,
+          "syncAccess": false,
+          "defaultValue": true,
+          "uiOptions": {
+            "visible": "js/authenticationGeneratePasswordVisible"
+          }
+        },
+        {
+          "name": "newPassword",
+          "label": "New Password",
+          "type": "text",
+          "system": true,
+          "transient": true,
+          "required": "js/authenticationNewPasswordRequired",
+          "readAccess": "js/authenticationNewPasswordReadAccess",
+          "writeAccess": "js/authenticationNewPasswordWriteAccess",
+          "typeRules": {
+            "minLength": 6
+          },
+          "uiOptions": {
+            "password": true
+          }
+        },
+        {
+          "name": "passwordConfirmation",
+          "label": "Password Confirmation",
+          "type": "text",
+          "system": true,
+          "transient": true,
+          "required": "js/authenticationPasswordConfirmationRequired",
+          "readAccess": "js/authenticationPasswordConfirmationReadAccess",
+          "writeAccess": "js/authenticationPasswordConfirmationWriteAccess",
+          "uiOptions": {
+            "password": true
+          }
+        },
+        {
+          "name": "password",
+          "label": "Password",
+          "type": "text",
+          "system": true,
+          "syncAccess": false,
+          "required": "js/authenticationPasswordRequired",
+          "typeRules": {
+            "minLength": 6
+          },
+          "uiOptions": {
+            "visible": "never"
+          }
+        },
+        {
+          "name": "passwordExpired",
+          "label": "Password Expired",
+          "type": "boolean",
+          "system": true,
+          "syncAccess": false,
+          "uiOptions": {
+            "readOnly": "always",
+            "visible": "never"
+          }
+        },
+        {
+          "name": "lastPasswordChange",
+          "label": "Last Password Change",
+          "type": "dateTime",
+          "system": true,
+          "syncAccess": false,
+          "uiOptions": {
+            "readOnly": "always",
+            "visible": "never"
+          }
+        },
+        {
+          "name": "resetPasswordCode",
+          "label": "Reset Password Code",
+          "type": "text",
+          "system": true,
+          "syncAccess": false,
+          "uiOptions": {
+            "visible": "never"
+          }
+        },
+        {
+          "name": "enableTwoFactorAuthentication",
+          "label": "Enable Two Factor Authentication",
+          "type": "boolean",
+          "system": true,
+          "syncAccess": false,
+          "uiOptions": {
+            "visible": "never"
+          }
+        },
+        {
+          "name": "phoneNumber",
+          "label": "Phone Number",
+          "type": "text",
+          "system": true,
+          "required": {
+            "authentication.enabletwofactorauthentication": true
+          },
+          "readAccess": {
+            "authentication.enabletwofactorauthentication": true
+          },
+          "writeAccess": {
+            "authentication.enabletwofactorauthentication": true
+          },
+          "uiOptions": {
+            "visible": "never"
+          }
+        },
+        {
+          "name": "twoFactorAuthenticationKey",
+          "label": "Two Factor Authentication Key",
+          "type": "qr",
+          "system": true,
+          "sensitiveData": true,
+          "readAccess": {
+            "authentication.enabletwofactorauthentication": true
+          },
+          "writeAccess": {
+            "authentication.enabletwofactorauthentication": true
+          },
+          "uiOptions": {
+            "visible": "never"
+          }
+        },
+        {
+          "name": "failedLoginAttempts",
+          "label": "Failed Login Attempts",
+          "type": "integer",
+          "system": true,
+          "syncAccess": false,
+          "defaultValue": 0.0,
+          "uiOptions": {
+            "visible": "never"
+          }
+        }
+      ]
+    },
+    {
+      "name": "groups",
+      "label": "Groups",
+      "type": "nestedFields",
+      "multiplicity": "many",
+      "system": true,
+      "syncAccess": false,
+      "required": "always",
+      "nestedFields": [
+        {
+          "name": "primary",
+          "label": "Primary",
+          "type": "boolean",
+          "system": true,
+          "syncAccess": false
+        },
+        {
+          "name": "external",
+          "label": "External",
+          "type": "boolean",
+          "system": true,
+          "syncAccess": false,
+          "uiOptions": {
+            "visible": "never"
+          }
+        },
+        {
+          "name": "group",
+          "label": "Group",
+          "type": "group",
+          "system": true,
+          "syncAccess": false,
+          "required": "always"
+        }
+      ]
+    },
+    {
+      "name": "permissions",
+      "label": "Permissions",
+      "type": "nestedFields",
+      "system": true,
+      "syncAccess": false,
+      "uiOptions": {
+        "visible": "never"
+      },
+      "nestedFields": [
+        {
+          "name": "superUser",
+          "label": "Super User",
+          "type": "boolean",
+          "system": true,
+          "syncAccess": false,
+          "uiOptions": {
+            "readOnly": "always"
+          }
+        },
+        {
+          "name": "systemUser",
+          "label": "System User",
+          "type": "boolean",
+          "system": true,
+          "syncAccess": false,
+          "uiOptions": {
+            "readOnly": "always"
+          }
+        },
+        {
+          "name": "developer",
+          "label": "Developer",
+          "type": "boolean",
+          "system": true,
+          "syncAccess": false,
+          "uiOptions": {
+            "readOnly": "always"
+          }
+        }
+      ]
+    },
+    {
+      "name": "localization",
+      "label": "Localization",
+      "type": "nestedFields",
+      "system": true,
+      "syncAccess": false,
+      "uiOptions": {
+        "visible": "never"
+      },
+      "nestedFields": [
+        {
+          "name": "timezoneMode",
+          "label": "Timezone Mode",
+          "type": "choice",
+          "system": true,
+          "syncAccess": false,
+          "defaultValue": "AUTO",
+          "typeRules": {
+            "possibleValues": [
+              {
+                "name": "AUTO",
+                "label": "AUTO",
+                "color": "default"
+              },
+              {
+                "name": "MANUAL",
+                "label": "MANUAL",
+                "color": "default"
+              }
+            ]
+          },
+          "uiOptions": {
+            "representation": "switcher"
+          }
+        },
+        {
+          "name": "timezone",
+          "label": "Timezone",
+          "type": "text",
+          "system": true,
+          "syncAccess": false
+        },
+        {
+          "name": "language",
+          "label": "Language",
+          "type": "choice",
+          "system": true,
+          "syncAccess": false,
+          "defaultValue": "english",
+          "typeRules": {
+            "possibleValues": [
+              {
+                "name": "english",
+                "label": "English",
+                "color": "default"
+              },
+              {
+                "name": "spanish",
+                "label": "Spanish",
+                "color": "default"
+              }
+            ]
+          },
+          "uiOptions": {
+            "representation": "switcher"
+          }
+        }
+      ]
+    },
+    {
+      "name": "identityProviders",
+      "label": "Identity Providers",
+      "type": "nestedFields",
+      "multiplicity": "many",
+      "system": true,
+      "syncAccess": false,
+      "required": "js/identityProvidersRequired",
+      "uiOptions": {
+        "visible": "never"
+      },
+      "nestedFields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "system": true,
+          "syncAccess": false,
+          "required": "always"
+        },
+        {
+          "name": "externalId",
+          "label": "External Id",
+          "type": "text",
+          "system": true,
+          "syncAccess": false
+        }
+      ]
+    },
+    {
+      "name": "integrations",
+      "label": "Integrations",
+      "type": "nestedFields",
+      "multiplicity": "many",
+      "system": true,
+      "syncAccess": false,
+      "uiOptions": {
+        "visible": "never"
+      },
+      "nestedFields": [
+        {
+          "name": "endpoint",
+          "label": "Endpoint",
+          "type": "text",
+          "system": true,
+          "syncAccess": false,
+          "required": "always"
+        },
+        {
+          "name": "status",
+          "label": "Status",
+          "type": "choice",
+          "system": true,
+          "syncAccess": false,
+          "defaultValue": "DISCONNECTED",
+          "required": "always",
+          "typeRules": {
+            "possibleValues": [
+              {
+                "name": "CONNECTED",
+                "label": "CONNECTED",
+                "color": "success"
+              },
+              {
+                "name": "DISCONNECTED",
+                "label": "DISCONNECTED",
+                "color": "danger"
+              }
+            ]
+          },
+          "uiOptions": {
+            "representation": "switcher"
+          }
+        },
+        {
+          "name": "configurationSet",
+          "label": "Configuration Set",
+          "type": "boolean",
+          "system": true,
+          "syncAccess": false
+        },
+        {
+          "name": "configuration",
+          "label": "Configuration",
+          "type": "longText",
+          "system": true,
+          "sensitiveData": true,
+          "syncAccess": false,
+          "uiOptions": {
+            "visible": "never"
+          }
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "resetPassword",
+      "label": "Reset Password",
+      "saveDataBeforeRunning": true,
+      "resultAsResponse": true,
+      "system": true,
+      "actions": "js/resetPasswordActions"
+    },
+    {
+      "name": "activate",
+      "label": "Activate",
+      "saveDataBeforeRunning": true,
+      "resultAsResponse": true,
+      "system": true,
+      "precondition": {
+        "status": "inactive"
+      },
+      "actions": "js/activateActions"
+    },
+    {
+      "name": "deactivate",
+      "label": "Deactivate",
+      "saveDataBeforeRunning": true,
+      "resultAsResponse": true,
+      "system": true,
+      "precondition": {
+        "status": "active"
+      },
+      "actions": "js/deactivateActions"
+    },
+    {
+      "name": "unblock",
+      "label": "Unblock",
+      "saveDataBeforeRunning": true,
+      "resultAsResponse": true,
+      "system": true,
+      "precondition": {
+        "status": "blocked"
+      },
+      "actions": "js/unblockActions"
+    }
+  ],
+  "recordLabel": "fields/fullName"
+}

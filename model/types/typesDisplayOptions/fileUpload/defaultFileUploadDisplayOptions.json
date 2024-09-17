@@ -1,0 +1,6 @@
+{
+  "name": "defaultFileUploadDisplayOptions",
+  "label": "Default file upload display options",
+  "type": "fileUpload",
+  "defaultSettings": true
+}

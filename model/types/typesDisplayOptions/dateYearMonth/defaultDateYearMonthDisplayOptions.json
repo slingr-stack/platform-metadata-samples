@@ -1,0 +1,6 @@
+{
+  "name": "defaultDateYearMonthDisplayOptions",
+  "label": "Default date year month display options",
+  "type": "dateYearMonth",
+  "defaultSettings": true
+}

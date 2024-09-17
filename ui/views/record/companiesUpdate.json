@@ -1,0 +1,6 @@
+{
+  "name": "companiesUpdate",
+  "label": "Update company",
+  "entity": "companies",
+  "type": "edit"
+}

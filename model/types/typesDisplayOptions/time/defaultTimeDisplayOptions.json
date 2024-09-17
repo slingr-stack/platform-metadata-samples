@@ -1,0 +1,6 @@
+{
+  "name": "defaultTimeDisplayOptions",
+  "label": "Default time display options",
+  "type": "time",
+  "defaultSettings": true
+}

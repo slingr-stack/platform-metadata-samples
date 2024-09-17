@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "type": "viewEntry",
+      "label": "Companies",
+      "name": "companies",
+      "view": "companies",
+      "options": {
+        "icon": "zmdi-city-alt"
+      }
+    },
+    {
+      "type": "viewEntry",
+      "label": "Contacts",
+      "name": "contacts",
+      "view": "contacts",
+      "options": {
+        "icon": "zmdi-accounts"
+      }
+    }
+  ]
+}

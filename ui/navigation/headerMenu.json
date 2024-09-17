@@ -1,0 +1,72 @@
+{
+  "entries": [
+    {
+      "type": "headerMenuPlaceholder",
+      "name": "tasks",
+      "options": {
+        "icon": "zmdi-notifications",
+        "showOnlyIcon": true
+      }
+    },
+    {
+      "name": "secondaryMenu",
+      "type": "group",
+      "label": "Secondary Menu",
+      "options": {
+        "icon": "zmdi-menu",
+        "showOnlyIcon": true
+      },
+      "entries": [
+        {
+          "type": "viewEntry",
+          "label": "Manage users",
+          "view": "systemUsers",
+          "options": {
+            "icon": "zmdi-accounts"
+          }
+        }
+      ]
+    },
+    {
+      "name": "userMenu",
+      "type": "userGroup",
+      "entries": [
+        {
+          "type": "headerMenuPlaceholder",
+          "name": "myProfile",
+          "options": {
+            "icon": "zmdi-account"
+          }
+        },
+        {
+          "type": "headerMenuPlaceholder",
+          "name": "switchUser",
+          "options": {
+            "icon": "zmdi-repeat"
+          }
+        },
+        {
+          "type": "headerMenuPlaceholder",
+          "name": "myIntegrations",
+          "options": {
+            "icon": "zmdi-input-composite"
+          }
+        },
+        {
+          "type": "headerMenuPlaceholder",
+          "name": "switchGroups",
+          "options": {
+            "icon": "zmdi-repeat"
+          }
+        },
+        {
+          "type": "headerMenuPlaceholder",
+          "name": "logOut",
+          "options": {
+            "icon": "zmdi-sign-in"
+          }
+        }
+      ]
+    }
+  ]
+}

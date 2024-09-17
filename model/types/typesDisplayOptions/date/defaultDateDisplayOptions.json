@@ -1,0 +1,6 @@
+{
+  "name": "defaultDateDisplayOptions",
+  "label": "Default date display options",
+  "type": "date",
+  "defaultSettings": true
+}

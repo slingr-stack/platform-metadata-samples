@@ -1,0 +1,9 @@
+{
+  "name": "slingr",
+  "label": "Slingr",
+  "system": true,
+  "type": "slingr",
+  "allowCreateUser": false,
+  "allowUpdateUser": false,
+  "allowAddProvider": true
+}

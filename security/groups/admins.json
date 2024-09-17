@@ -1,0 +1,520 @@
+{
+  "name": "admins",
+  "label": "Admins",
+  "entityPermissions": [
+    {
+      "entity": "sys.users",
+      "read": "always",
+      "create": "always",
+      "update": "always",
+      "delete": "always",
+      "auditLogs": "always",
+      "import": true,
+      "export": true,
+      "fields": [
+        {
+          "field": "firstName",
+          "permission": "readWrite"
+        },
+        {
+          "field": "lastName",
+          "permission": "readWrite"
+        },
+        {
+          "field": "fullName",
+          "permission": "readWrite"
+        },
+        {
+          "field": "email",
+          "permission": "readWrite"
+        },
+        {
+          "field": "emailStandardized",
+          "permission": "readWrite"
+        },
+        {
+          "field": "status",
+          "permission": "readWrite"
+        },
+        {
+          "field": "created",
+          "permission": "readWrite"
+        },
+        {
+          "field": "sendWelcomeEmail",
+          "permission": "readWrite"
+        },
+        {
+          "field": "authentication",
+          "permission": "readWrite"
+        },
+        {
+          "field": "authentication.generatePassword",
+          "permission": "parent"
+        },
+        {
+          "field": "authentication.newPassword",
+          "permission": "parent"
+        },
+        {
+          "field": "authentication.passwordConfirmation",
+          "permission": "parent"
+        },
+        {
+          "field": "authentication.password",
+          "permission": "parent"
+        },
+        {
+          "field": "authentication.passwordExpired",
+          "permission": "parent"
+        },
+        {
+          "field": "authentication.lastPasswordChange",
+          "permission": "parent"
+        },
+        {
+          "field": "authentication.resetPasswordCode",
+          "permission": "parent"
+        },
+        {
+          "field": "authentication.enableTwoFactorAuthentication",
+          "permission": "parent"
+        },
+        {
+          "field": "authentication.phoneNumber",
+          "permission": "parent"
+        },
+        {
+          "field": "authentication.twoFactorAuthenticationKey",
+          "permission": "parent"
+        },
+        {
+          "field": "authentication.failedLoginAttempts",
+          "permission": "parent"
+        },
+        {
+          "field": "groups",
+          "permission": "readWrite"
+        },
+        {
+          "field": "groups.primary",
+          "permission": "parent"
+        },
+        {
+          "field": "groups.external",
+          "permission": "parent"
+        },
+        {
+          "field": "groups.group",
+          "permission": "parent"
+        },
+        {
+          "field": "permissions",
+          "permission": "readWrite"
+        },
+        {
+          "field": "permissions.superUser",
+          "permission": "parent"
+        },
+        {
+          "field": "permissions.systemUser",
+          "permission": "parent"
+        },
+        {
+          "field": "permissions.developer",
+          "permission": "parent"
+        },
+        {
+          "field": "localization",
+          "permission": "readWrite"
+        },
+        {
+          "field": "localization.timezoneMode",
+          "permission": "parent"
+        },
+        {
+          "field": "localization.timezone",
+          "permission": "parent"
+        },
+        {
+          "field": "localization.language",
+          "permission": "parent"
+        },
+        {
+          "field": "identityProviders",
+          "permission": "readWrite"
+        },
+        {
+          "field": "identityProviders.name",
+          "permission": "parent"
+        },
+        {
+          "field": "identityProviders.externalId",
+          "permission": "parent"
+        },
+        {
+          "field": "integrations",
+          "permission": "readWrite"
+        },
+        {
+          "field": "integrations.endpoint",
+          "permission": "parent"
+        },
+        {
+          "field": "integrations.status",
+          "permission": "parent"
+        },
+        {
+          "field": "integrations.configurationSet",
+          "permission": "parent"
+        },
+        {
+          "field": "integrations.configuration",
+          "permission": "parent"
+        }
+      ],
+      "actions": [
+        {
+          "action": "resetPassword",
+          "permission": {
+            "value": "always"
+          }
+        },
+        {
+          "action": "activate",
+          "permission": {
+            "value": "always"
+          }
+        },
+        {
+          "action": "deactivate",
+          "permission": {
+            "value": "always"
+          }
+        },
+        {
+          "action": "unblock",
+          "permission": {
+            "value": "always"
+          }
+        }
+      ]
+    },
+    {
+      "entity": "companies",
+      "read": "always",
+      "create": "always",
+      "update": "always",
+      "delete": "always",
+      "auditLogs": "always",
+      "import": true,
+      "export": true,
+      "fields": [
+        {
+          "field": "name",
+          "permission": "readWrite"
+        },
+        {
+          "field": "description",
+          "permission": "readWrite"
+        },
+        {
+          "field": "status",
+          "permission": "readWrite"
+        },
+        {
+          "field": "email",
+          "permission": "readWrite"
+        },
+        {
+          "field": "website",
+          "permission": "readWrite"
+        },
+        {
+          "field": "address",
+          "permission": "readWrite"
+        },
+        {
+          "field": "address.street",
+          "permission": "parent"
+        },
+        {
+          "field": "address.zipCode",
+          "permission": "parent"
+        }
+      ],
+      "actions": [
+        {
+          "action": "activate",
+          "permission": {
+            "value": "always"
+          }
+        },
+        {
+          "action": "deactivate",
+          "permission": {
+            "value": "always"
+          }
+        }
+      ]
+    },
+    {
+      "entity": "contacts",
+      "read": "always",
+      "create": "always",
+      "update": "always",
+      "delete": "always",
+      "auditLogs": "always",
+      "import": true,
+      "export": true,
+      "fields": [
+        {
+          "field": "company",
+          "permission": "readWrite"
+        },
+        {
+          "field": "firstName",
+          "permission": "readWrite"
+        },
+        {
+          "field": "lastName",
+          "permission": "readWrite"
+        },
+        {
+          "field": "fullName",
+          "permission": "readWrite"
+        },
+        {
+          "field": "email",
+          "permission": "readWrite"
+        },
+        {
+          "field": "phoneNumbers",
+          "permission": "readWrite"
+        },
+        {
+          "field": "notes",
+          "permission": "readWrite"
+        },
+        {
+          "field": "notes.date",
+          "permission": "parent"
+        },
+        {
+          "field": "notes.user",
+          "permission": "parent"
+        },
+        {
+          "field": "notes.note",
+          "permission": "parent"
+        }
+      ],
+      "actions": [
+        {
+          "action": "addNote",
+          "permission": {
+            "value": "always"
+          },
+          "parameters": [
+            {
+              "parameter": "note",
+              "permission": "readWrite"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "sys.oauthApps",
+      "read": "never",
+      "create": "never",
+      "update": "never",
+      "delete": "never",
+      "auditLogs": "never",
+      "import": false,
+      "export": false,
+      "fields": [
+        {
+          "field": "appLabel",
+          "permission": "none"
+        },
+        {
+          "field": "name",
+          "permission": "none"
+        },
+        {
+          "field": "icon",
+          "permission": "none"
+        },
+        {
+          "field": "website",
+          "permission": "none"
+        },
+        {
+          "field": "description",
+          "permission": "none"
+        },
+        {
+          "field": "authorizationCallbackUrl",
+          "permission": "none"
+        },
+        {
+          "field": "clientId",
+          "permission": "none"
+        },
+        {
+          "field": "scopes",
+          "permission": "none"
+        },
+        {
+          "field": "created",
+          "permission": "none"
+        }
+      ],
+      "actions": []
+    },
+    {
+      "entity": "sys.oauthAuthorizations",
+      "read": "never",
+      "create": "never",
+      "update": "never",
+      "delete": "never",
+      "auditLogs": "never",
+      "import": false,
+      "export": false,
+      "fields": [
+        {
+          "field": "date",
+          "permission": "none"
+        },
+        {
+          "field": "application",
+          "permission": "none"
+        },
+        {
+          "field": "user",
+          "permission": "none"
+        },
+        {
+          "field": "authorizationCode",
+          "permission": "none"
+        },
+        {
+          "field": "accessToken",
+          "permission": "none"
+        },
+        {
+          "field": "refreshToken",
+          "permission": "none"
+        }
+      ],
+      "actions": []
+    }
+  ],
+  "viewPermissions": [
+    {
+      "view": "sysUsersResetPassword"
+    },
+    {
+      "view": "sysUsersActivate"
+    },
+    {
+      "view": "sysUsersDeactivate"
+    },
+    {
+      "view": "sysUsersUnblock"
+    },
+    {
+      "view": "systemUsers",
+      "canAccess": true
+    },
+    {
+      "view": "systemUsersAdd"
+    },
+    {
+      "view": "systemUsersEdit"
+    },
+    {
+      "view": "systemUsersReadOnly"
+    },
+    {
+      "view": "companiesActivate"
+    },
+    {
+      "view": "companiesDeactivate"
+    },
+    {
+      "view": "companyCreate",
+      "canAccess": true
+    },
+    {
+      "view": "companyRead",
+      "canAccess": true
+    },
+    {
+      "view": "companiesUpdate",
+      "canAccess": true
+    },
+    {
+      "view": "companies",
+      "canAccess": true
+    },
+    {
+      "view": "contactCreate",
+      "canAccess": true
+    },
+    {
+      "view": "contactRead",
+      "canAccess": true
+    },
+    {
+      "view": "contactUpdate",
+      "canAccess": true
+    },
+    {
+      "view": "contacts",
+      "canAccess": true
+    },
+    {
+      "view": "contactsAddNote"
+    },
+    {
+      "view": "systemOauthApps"
+    },
+    {
+      "view": "systemOauthAuthorizations"
+    },
+    {
+      "view": "contactInfo",
+      "canAccess": true
+    }
+  ],
+  "security": {
+    "passwordPolicies": {
+      "passwordExpires": "never",
+      "maximumLoginAttempts": 10,
+      "requireCapital": false,
+      "requireLowerCase": true,
+      "requireNumber": true,
+      "requireSymbol": false,
+      "validateMinimumLength": true,
+      "minimumLength": 8,
+      "require2FA": false
+    },
+    "sessionPolicies": {
+      "automaticLogoutTime": "eightHours",
+      "loginNotification": false,
+      "notifyAuthNewIP": false,
+      "notifyLoginFromNewLocation": false
+    },
+    "restApiPermissions": {
+      "allowUiApi": true,
+      "allowDataApi": true,
+      "allowFilesReadApi": true,
+      "allowFilesUploadApi": true,
+      "allowJobsApi": true
+    },
+    "allowedIPs": []
+  },
+  "userImpersonate": false
+}

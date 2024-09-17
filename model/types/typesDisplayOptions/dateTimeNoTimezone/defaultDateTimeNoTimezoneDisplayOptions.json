@@ -1,0 +1,6 @@
+{
+  "name": "defaultDateTimeNoTimezoneDisplayOptions",
+  "label": "Default date time no timezone display options",
+  "type": "dateTimeNoTimezone",
+  "defaultSettings": true
+}

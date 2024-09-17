@@ -1,0 +1,6 @@
+{
+  "name": "defaultHtmlDisplayOptions",
+  "label": "Default html display options",
+  "type": "html",
+  "defaultSettings": true
+}
