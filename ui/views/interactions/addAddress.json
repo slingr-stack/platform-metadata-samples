@@ -9,7 +9,7 @@
       "label": "Address Line 1",
       "name": "addressLine1",
       "type": "text",
-      "required": true
+      "required": "always"
     },
     {
       "label": "Address Line 2",
@@ -20,15 +20,19 @@
       "label": "City",
       "name": "city",
       "type": "relationship",
-      "entity": "cities",
-      "required": true
+      "required": "always",
+      "typeRules": {
+        "entity": "cities"
+      }
     },
     {
       "label": "State",
       "name": "state",
       "type": "relationship",
-      "entity": "states",
-      "required": true
+      "required": "always",
+      "typeRules": {
+        "entity": "states"
+      }
     }
   ]
 }
