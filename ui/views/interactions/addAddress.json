@@ -3,7 +3,7 @@
   "name": "addAddress",
   "style": "primary",
   "icon": "plus",
-  "script": "js/addAddressScript",
+  "script": "js/addAddressInteraction",
   "parameters": [
     {
       "label": "Address Line 1",

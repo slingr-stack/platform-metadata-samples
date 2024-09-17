@@ -1,0 +1,14 @@
+{
+  "label": "Apply Discount",
+  "name": "applyDiscount",
+  "icon": "tag",
+  "script": "js/applyDiscountInteraction",
+  "parameters": [
+    {
+      "label": "Discount Code",
+      "name": "discountCode",
+      "type": "text",
+      "required": true
+    }
+  ]
+}
