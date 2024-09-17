@@ -6,26 +6,26 @@
   "script": "js/addAddressScript",
   "parameters": [
     {
-      "name": "addressLine1",
       "label": "Address Line 1",
+      "name": "addressLine1",
       "type": "text",
       "required": true
     },
     {
-      "name": "addressLine2",
       "label": "Address Line 2",
+      "name": "addressLine2",
       "type": "text"
     },
     {
-      "name": "city",
       "label": "City",
+      "name": "city",
       "type": "relationship",
       "entity": "cities",
       "required": true
     },
     {
-      "name": "state",
       "label": "State",
+      "name": "state",
       "type": "relationship",
       "entity": "states",
       "required": true
