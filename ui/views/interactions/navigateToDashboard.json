@@ -1,0 +1,7 @@
+{
+  "label": "Go to Dashboard",
+  "name": "navigateToDashboard",
+  "style": "primary",
+  "icon": "dashboard",
+  "script": "js/navigateToDashboardInteraction"
+}
