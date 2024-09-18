@@ -1,0 +1,21 @@
+{
+  "label": "Filter Sales",
+  "name": "filterSalesDashboard",
+  "icon": "search",
+  "script": "js/filterSalesDashboardInteraction",
+  "validation": "js/filterSalesDashboardInteractionValidation",
+  "parameters": [
+    {
+      "label": "From Date",
+      "name": "fromDate",
+      "type": "date",
+      "required": "always"
+    },
+    {
+      "label": "To Date",
+      "name": "toDate",
+      "type": "date",
+      "required": "always"
+    }
+  ]
+}
