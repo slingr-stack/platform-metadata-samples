@@ -8,7 +8,7 @@
       "label": "Discount Code",
       "name": "discountCode",
       "type": "text",
-      "required": true
+      "required": "always"
     }
   ]
 }
