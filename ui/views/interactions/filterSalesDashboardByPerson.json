@@ -1,0 +1,16 @@
+{
+  "label": "Filter dashboard by sales person",
+  "name": "filterSalesDashboardByPerson",
+  "style": "primary",
+  "icon": "user",
+  "script": "js/filterSalesDashboardByPersonInteraction",
+  "parameters": [
+    {
+      "label": "Salesperson",
+      "name": "salesPerson",
+      "type": "relationship",
+      "entity": "sys.users",
+      "required": "always"
+    }
+  ]
+}
