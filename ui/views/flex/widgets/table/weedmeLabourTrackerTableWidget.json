@@ -1,0 +1,6 @@
+{
+  "type": "dynamicTable",
+  "label": "Labour tracker",
+  "name": "labourTracker",
+  "script": "js/labourTrackerTableWidgetCalculation"
+}

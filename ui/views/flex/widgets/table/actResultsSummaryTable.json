@@ -1,0 +1,10 @@
+{
+  "type": "dynamicTable",
+  "label": "Results summary",
+  "name": "resultsSummary",
+  "script": "js/resultsSummaryTableWidgetCalculation",
+  "stickyHeader": true,
+  "stickyColumns": 1,
+  "height": "scroll",
+  "maxHeight": "500px"
+}

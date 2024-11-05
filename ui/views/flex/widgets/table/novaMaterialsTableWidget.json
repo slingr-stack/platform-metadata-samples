@@ -1,0 +1,6 @@
+{
+  "type": "dynamicTable",
+  "label": "Materials",
+  "name": "materials",
+  "script": "js/materialsTableWidgetCalculation"
+}

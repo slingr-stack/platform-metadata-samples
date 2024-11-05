@@ -1,0 +1,7 @@
+{
+  "type": "template",
+  "label": "User info",
+  "name": "userInfo",
+  "modelScript": "js/userInfoTemplateModelCalculation",
+  "template": "html/userInfoTemplateWidget"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "dynamicTable",
+  "name": "notes",
+  "label": "Notes",
+  "enableFilters": true,
+  "pagination": {
+    "type": "infiniteScrolling",
+    "batchSize": 5
+  },
+  "script": "js/notesTableWidgetCalculation"
+}

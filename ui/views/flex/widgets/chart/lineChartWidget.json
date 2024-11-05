@@ -1,0 +1,6 @@
+{
+  "type": "chart",
+  "label": "Total expenses per month",
+  "name": "totalExpensesPerMonth",
+  "script": "js/expensesPerMonthChartWidgetCalculation"
+}

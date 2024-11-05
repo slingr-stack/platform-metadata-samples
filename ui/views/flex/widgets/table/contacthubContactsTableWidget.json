@@ -1,0 +1,32 @@
+{
+  "type": "dataTable",
+  "name": "contacts",
+  "label": "Contacts",
+  "columns": [
+    {
+      "field": "fullName",
+      "options": {
+        "sortable": true
+      }
+    },
+    {
+      "field": "email"
+    },
+    {
+      "field": "phoneNumbers"
+    }
+  ],
+  "pagination": {
+    "type": "perPage",
+    "itemsPerPage": 10
+  },
+  "header": {
+    "sticky": true
+  },
+  "dataSet": {
+    "entity": "contacts",
+    "filters": {
+      "company": "$currentRecord"
+    }
+  }
+}

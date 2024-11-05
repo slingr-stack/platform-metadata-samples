@@ -1,0 +1,10 @@
+{
+  "type": "stats",
+  "label": "Orders",
+  "name": "orders",
+  "icon": "shopping-cart",
+  "iconStyle": "success",
+  "valueStyle": "primary",
+  "script": "js/ordersStatsWidgetCalculation",
+  "footnote": "%52+ since last week"
+}
