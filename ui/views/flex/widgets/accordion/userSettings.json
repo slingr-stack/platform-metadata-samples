@@ -1,0 +1,59 @@
+{
+  "type": "accordion",
+  "label": "User settings",
+  "name": "userSettings",
+  "sections": [
+    {
+      "label": "Personal Information",
+      "layout": [
+        {
+          "columns": [
+            {
+              "width": 6,
+              "widgets": [
+                {
+                  "type": "entityField",
+                  "field": "firstName"
+                },
+                {
+                  "type": "entityField",
+                  "field": "lastName"
+                }
+              ]
+            },
+            {
+              "width": 6,
+              "widgets": [
+                {
+                  "type": "template",
+                  "label": "Profile Picture",
+                  "name": "profilePicture",
+                  "template": "html/profilePictureTemplate"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "width": 12,
+              "widgets": [
+                {
+                  "type": "dynamicTable",
+                  "label": "Activity Log",
+                  "name": "activityLog",
+                  "script": "js/activityLogTableWidgetCalculation",
+                  "pagination": {
+                    "type": "perPage",
+                    "itemsPerPage": 5
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
