@@ -1,8 +1,8 @@
 {
-  "type": "accordion",
+  "type": "tabs",
   "label": "User settings",
   "name": "userSettings",
-  "sections": [
+  "tabs": [
     {
       "label": "Personal information",
       "layout": [
