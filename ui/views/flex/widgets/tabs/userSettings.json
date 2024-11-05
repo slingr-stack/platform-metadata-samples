@@ -1,6 +1,6 @@
 {
   "type": "tabs",
-  "label": "User settings",
+  "label": "User profile settings",
   "name": "userSettings",
   "tabs": [
     {

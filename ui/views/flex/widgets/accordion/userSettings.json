@@ -1,6 +1,6 @@
 {
   "type": "accordion",
-  "label": "User settings",
+  "label": "User profile settings",
   "name": "userSettings",
   "sections": [
     {
