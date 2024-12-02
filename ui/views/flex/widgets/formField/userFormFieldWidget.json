@@ -1,0 +1,10 @@
+{
+  "type": "formField",
+  "label": "Full name",
+  "name": "fullName",
+  "labelLayout": "vertical",
+  "value": {
+    "type": "entityField",
+    "field": "fullName"
+  }
+}
