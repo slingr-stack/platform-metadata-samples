@@ -20,6 +20,7 @@
     {
       "label": "Apply",
       "name": "apply",
+      "style": "primary",
       "icon": "check"
     }
   ]

@@ -27,6 +27,7 @@
     {
       "label": "Filter",
       "name": "filter",
+      "style": "primary",
       "icon": "search"
     }
   ]
