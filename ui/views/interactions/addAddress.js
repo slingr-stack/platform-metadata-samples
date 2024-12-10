@@ -1,5 +1,5 @@
 
-function addAddressInteraction(record, interaction) {
+function addAddressInteraction(record, interaction, context) {
     record.field('addresses').add({
         addressLine1: interaction.field('addressLine1').val(),
         addressLine2: interaction.field('addressLine2').val(),

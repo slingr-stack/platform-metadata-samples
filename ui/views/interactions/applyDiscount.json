@@ -10,5 +10,17 @@
       "type": "text",
       "required": "always"
     }
+  ],
+  "buttons": [
+    {
+      "label": "Close",
+      "name": "close",
+      "icon": "close"
+    },
+    {
+      "label": "Apply",
+      "name": "apply",
+      "icon": "check"
+    }
   ]
 }

@@ -3,7 +3,7 @@ function filterSalesDashboardInteraction(record, interaction) {
     record.field('toDate').val(interaction.field('toDate').val());
 }
 
-function filterSalesDashboardInteractionValidation(record, interaction) {
+function filterSalesDashboardInteractionValidation(record, interaction, context) {
     let errors = [];
     let fromDate = interaction.field('fromDate').val();
     let toDate = interaction.field('toDate').val();

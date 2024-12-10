@@ -6,11 +6,23 @@
   "script": "js/filterSalesDashboardByPersonInteraction",
   "parameters": [
     {
-      "label": "Salesperson",
+      "label": "Sales person",
       "name": "salesPerson",
       "type": "relationship",
       "entity": "sys.users",
       "required": "always"
+    }
+  ],
+  "buttons": [
+    {
+      "label": "Close",
+      "name": "close",
+      "icon": "close"
+    },
+    {
+      "label": "Filter",
+      "name": "filter",
+      "icon": "search"
     }
   ]
 }

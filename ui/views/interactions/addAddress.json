@@ -34,5 +34,17 @@
         "entity": "states"
       }
     }
+  ],
+  "buttons": [
+    {
+      "label": "Close",
+      "name": "close",
+      "icon": "close"
+    },
+    {
+      "label": "Add address",
+      "name": "addAddress",
+      "icon": "plus"
+    }
   ]
 }

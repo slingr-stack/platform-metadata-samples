@@ -17,5 +17,17 @@
       "type": "date",
       "required": "always"
     }
+  ],
+  "buttons": [
+    {
+      "label": "Close",
+      "name": "close",
+      "icon": "close"
+    },
+    {
+      "label": "Filter",
+      "name": "filter",
+      "icon": "search"
+    }
   ]
 }
